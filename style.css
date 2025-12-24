@@ -9,6 +9,7 @@ body {
     align-items: center;
     height: 100vh;
     text-align: center;
+    background-image: url('RM.jpg');
 }
 
 .container {
@@ -57,5 +58,6 @@ a:hover {
     border-color: #f0f;
     text-shadow: 0 0 5px #f0f, 0 0 10px #0ff;
 }
+
 
 
