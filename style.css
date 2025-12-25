@@ -31,6 +31,11 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.intro-box:hover {
+    transform: scale(1.02);
 }
 
 .start-btn {
@@ -48,13 +53,20 @@ h1 {
 .start-btn:hover {
     background-color: #f59e0b;
     color: #fff;
+    transform: scale(1.05);
 }
 
 /* ===========================
    HEADER و منو
 =========================== */
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+    padding: 10px 20px;
     position: relative;
+    border-radius: 10px;
 }
 
 /* دکمه همبرگری موبایل */
@@ -62,10 +74,7 @@ header {
     font-size: 28px;
     cursor: pointer;
     user-select: none;
-    display: none; /* پیش‌فرض دسکتاپ مخفی */
-    position: absolute;
-    top: 10px;
-    right: 20px;
+    display: none;
     z-index: 1001;
     color: #facc15;
 }
@@ -75,6 +84,7 @@ nav {
     display: flex;
     justify-content: center;
     gap: 30px;
+    flex-wrap: wrap;
     padding: 15px;
     background-color: rgba(0,0,0,0.7);
     border-radius: 10px;
@@ -82,7 +92,6 @@ nav {
     position: relative;
     z-index: 500;
 
-    /* برای دسکتاپ */
     max-height: none;
     overflow: visible;
     transition: none;
@@ -104,7 +113,7 @@ nav a:hover {
     box-shadow: 0 0 10px #f59e0b;
 }
 
-/* Dropdown Menu */
+/* Dropdown */
 .dropdown {
     position: relative;
 }
@@ -119,14 +128,12 @@ nav a:hover {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0,0,0,0.85);
     min-width: 160px;
     border-radius: 8px;
     padding: 10px 0;
     box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
     z-index: 1000;
-
-    /* انیمیشن نرم */
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.25s ease, transform 0.25s ease;
@@ -212,7 +219,6 @@ nav a:hover {
 
     nav {
         flex-direction: column;
-        gap: 15px;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease;
@@ -221,7 +227,7 @@ nav a:hover {
     }
 
     nav.active {
-        max-height: 500px; /* ارتفاع کافی برای همه لینک‌ها */
+        max-height: 500px;
     }
 
     nav a {
@@ -229,11 +235,51 @@ nav a:hover {
         border-bottom: 1px solid #444;
     }
 
+    /* زیرمنوی dropdown موبایل */
     .dropdown-content {
         position: static;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
         transform: translateY(0);
-        opacity: 1;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
         box-shadow: none;
         margin: 0;
+    }
+
+    .dropdown-content.open {
+        max-height: 500px;
+        opacity: 1;
+    }
+}
+
+/* ===========================
+   دسکتاپ
+=========================== */
+@media (min-width: 768px) {
+    .menu-btn {
+        display: none;
+    }
+
+    nav {
+        flex-direction: row;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
     }
 }
