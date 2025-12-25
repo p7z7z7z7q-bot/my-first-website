@@ -156,14 +156,27 @@ nav a:hover {
   nav {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .games {
+    flex-direction: column;
     align-items: center;
   }
 
-  nav a {
-    font-size: 0.9em;   /* کوچیک‌تر شدن متن */
-    padding: 5px 10px;  /* جمع و جور شدن دکمه‌ها */
+  .game-card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  header p {
+    font-size: 1em;
   }
 }
+
 
 
 
