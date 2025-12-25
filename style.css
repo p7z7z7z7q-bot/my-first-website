@@ -5,90 +5,39 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Press Start 2P', monospace;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3)), 
-                url('R.M.jpg') no-repeat center center fixed;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('R.M.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #e5e7eb;
+    color: #fff;
     text-align: center;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-}
-
-h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 5px #000;
-}
-
-/* Intro box */
-.intro-box {
-    background-color: rgba(128,0,128,0.5);
-    display: inline-block;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: transform 0.3s;
-}
-
-.intro-box:hover {
-    transform: scale(1.02);
-}
-
-.start-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #facc15;
-    color: #000;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.start-btn:hover {
-    background-color: #f59e0b;
-    color: #fff;
-    transform: scale(1.05);
-}
-
-/* ===========================
-   HEADER و منو
-=========================== */
+/* Header و منو */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0,0,0,0.7);
-    padding: 10px 20px;
-    position: relative;
+    background: linear-gradient(90deg, #a855f7, #facc15);
+    padding: 15px 20px;
     border-radius: 10px;
+    color: #000;
 }
 
-/* دکمه همبرگری موبایل */
 .menu-btn {
     font-size: 28px;
     cursor: pointer;
-    user-select: none;
     display: none;
-    z-index: 1001;
-    color: #facc15;
+    color: #000;
 }
 
-/* Nav منو اصلی */
 nav {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
     flex-wrap: wrap;
     padding: 15px;
-    background-color: rgba(0,0,0,0.7);
+    margin-bottom: 20px;
+    background: rgba(0,0,0,0.05);
     border-radius: 10px;
-    margin-bottom: 30px;
     position: relative;
     z-index: 500;
 }
@@ -148,7 +97,7 @@ nav a:hover {
     background-color: rgba(250, 204, 21, 0.2);
 }
 
-/* فعال شدن با hover دسکتاپ */
+/* فعال شدن hover دسکتاپ */
 @media (min-width: 768px) {
     .dropdown:hover .dropdown-content,
     .dropdown:focus-within .dropdown-content {
@@ -158,9 +107,39 @@ nav a:hover {
     }
 }
 
-/* ===========================
-   گیم کارت‌ها
-=========================== */
+/* Intro box */
+.intro-box {
+    background-color: rgba(128,0,128,0.5);
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.intro-box:hover {
+    transform: scale(1.02);
+}
+
+.start-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #facc15;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.start-btn:hover {
+    background-color: #f59e0b;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* گیم کارت‌ها */
 .games {
     display: flex;
     justify-content: center;
@@ -170,7 +149,7 @@ nav a:hover {
 
 .game-card {
     background-color: rgba(128,0,128,0.5);
-    color: #e5e7eb;
+    color: #fff;
     padding: 15px;
     border-radius: 10px;
     width: 200px;
@@ -207,9 +186,7 @@ nav a:hover {
     box-shadow: 0 0 20px #f59e0b;
 }
 
-/* ===========================
-   موبایل
-=========================== */
+/* موبایل */
 @media (max-width: 768px) {
     .menu-btn {
         display: block;
@@ -233,7 +210,6 @@ nav a:hover {
         border-bottom: 1px solid #444;
     }
 
-    /* زیرمنوی dropdown موبایل */
     .dropdown-content {
         position: static;
         max-height: 0;
@@ -252,7 +228,6 @@ nav a:hover {
         opacity: 1;
     }
 
-    /* غیرفعال کردن hover موبایل */
     .dropdown:hover .dropdown-content {
         display: none !important;
     }
