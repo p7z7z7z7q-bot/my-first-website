@@ -1,47 +1,125 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سایت گیمینگ من</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>🎮 Welcome to My Gaming Site 🎮</h1>
-        <p>این اولین صفحه گیمینگ من هست و آنلاین شده!</p>
-        <a href="#">شروع بازی</a>
-        <nav>
-            <a href="#">خانه</a>
-            <a href="#">درباره من</a>
-            <a href="#">بازی‌ها</a>
-        </nav>
+/* style.css */
+body {
+    background-color: #000;
+    color: #e5e7eb;
+    font-family: 'Press Start 2P', monospace;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3)),
+                url('R.M.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
 
-        <!-- کارت‌های بازی اینجا باید باشن -->
-        <main class="games">
-            <div class="game-card">
-                <img src="game1.png" alt="بازی ۱">
-                <h2>بازی ۱</h2>
-                <p>توضیح کوتاه درباره بازی ۱</p>
-                <a href="#">شروع بازی</a>
-            </div>
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-            <div class="game-card">
-                <img src="game2.jpg" alt="بازی ۲">
-                <h2>بازی ۲</h2>
-                <p>توضیح کوتاه درباره بازی ۲</p>
-                <a href="#">شروع بازی</a>
-            </div>
+/* خوش آمد */
+h1 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 5px #000;
+    margin-bottom: 10px;
+}
 
-            <div class="game-card">
-                <img src="game3.jpg" alt="بازی ۳">
-                <h2>بازی ۳</h2>
-                <p>توضیح کوتاه درباره بازی ۳</p>
-                <a href="#">شروع بازی</a>
-            </div>
-        </main>
+p {
+    background-color: rgba(128, 0, 128, 0.3); /* بنفش کم‌رنگ */
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
 
-    </div>
-</body>
-</html>
+/* دکمه شروع بازی بالای صفحه */
+.container > a:first-of-type {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(128, 0, 128, 0.5); /* بنفش */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.container > a:first-of-type:hover {
+    background-color: rgba(128, 0, 128, 0.8);
+}
+
+/* منو */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+nav a {
+    color: #facc15;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #f59e0b;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #f59e0b;
+}
+
+/* کارت‌های بازی */
+.games {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 50px 0;
+}
+
+.game-card {
+    background-color: rgba(128, 0, 128, 0.3); /* بنفش کم‌رنگ */
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px #f59e0b;
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.game-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #facc15;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.game-card a:hover {
+    background-color: #f59e0b;
+    color: #fff;
+}
