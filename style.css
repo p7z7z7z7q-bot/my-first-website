@@ -70,6 +70,29 @@ h1, p {
     border-radius: 5px;
 }
 
+nav {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 8px;
+}
+
+nav a {
+  color: #facc15; /* زرد گیمینگ */
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background-color: #f59e0b;
+  border-radius: 5px;
+  color: #000;
+}
+
+
 
 
 
