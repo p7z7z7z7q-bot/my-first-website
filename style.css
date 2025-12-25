@@ -200,20 +200,6 @@ nav {
   transform: translateY(0);
   display: block;
 }
-
-/* موبایل‌پسندتر */
-@media (max-width: 768px) {
-  nav {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .dropdown-content {
-    right: auto;
-    left: 0;
-    min-width: 140px;
-  }
-}
 /* ===== Page Transition ===== */
 body {
   opacity: 0;
@@ -223,6 +209,7 @@ body {
 body.loaded {
   opacity: 1;
 }
+
 
 
 
