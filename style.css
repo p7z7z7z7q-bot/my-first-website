@@ -175,7 +175,24 @@ nav a:hover {
   header p {
     font-size: 1em;
   }
+    .games {
+  flex-direction: column;   /* کارت‌ها زیر هم قرار می‌گیرن */
+  align-items: center;      /* وسط صفحه */
+  gap: 20px;                /* فاصله بین کارت‌ها */
 }
+
+.game-card {
+  width: 90%;               /* پهنای کارت‌ها روی موبایل */
+  max-width: 300px;         /* محدود کردن حداکثر عرض */
+  padding: 15px;            /* کمتر کردن padding */
+}
+
+.game-card img {
+  width: 100%;              /* عکس‌ها خودشون اندازه کارت می‌شن */
+  height: auto;             /* ارتفاع طبیعی */
+}
+}
+
 
 
 
