@@ -41,9 +41,9 @@ nav a:hover {
 /* -------------------- کارت‌ها (نسخه دسکتاپ) -------------------- */
 .games {
     display: flex;
-    flex-direction: column;  /* کارت‌ها زیر هم */
-    align-items: center;     /* وسط چین شدن */
+    justify-content: center;
     gap: 20px;
+    flex-wrap: wrap; /* کارت‌ها افقی کنار هم */
     margin: 50px 0;
 }
 
@@ -121,5 +121,6 @@ nav a:hover {
         font-size: 0.9em;
     }
 }
+
 
 
