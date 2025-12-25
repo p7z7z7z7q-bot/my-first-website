@@ -1,4 +1,4 @@
-// ===== منو همبرگری موبایل =====
+// منو همبرگری موبایل
 const menuBtn = document.querySelector('.menu-btn');
 const nav = document.querySelector('nav');
 
@@ -6,13 +6,13 @@ menuBtn.addEventListener('click', () => {
     nav.classList.toggle('active');
 });
 
-// ===== زیرمنوهای موبایل (هر dropbtn جدا) =====
+// زیرمنوهای موبایل
 const dropdownBtns = document.querySelectorAll('.dropbtn');
 
 dropdownBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        e.preventDefault(); // جلوگیری از رفتن به لینک
-        const dropdownContent = btn.nextElementSibling; // فقط زیرمنوی مربوط به این دکمه
+        e.preventDefault();
+        const dropdownContent = btn.nextElementSibling;
         dropdownContent.classList.toggle('open');
     });
 });
