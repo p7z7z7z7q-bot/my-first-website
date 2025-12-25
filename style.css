@@ -157,10 +157,6 @@ nav a:hover {
     align-items: center;
     gap: 15px;
   }
- .start-btn {
-    padding: 10px 20px;  /* جمع و جور شدن دکمه */
-    font-size: 1em;      /* فونت کوچیک‌تر */
-  }
 }
   .game-card {
     width: 90%;
@@ -185,7 +181,12 @@ nav a:hover {
     text-align: center;
     margin: 5px 0;
   }
+  .start-btn {
+    padding: 10px 20px;  /* جمع و جور شدن دکمه */
+    font-size: 1em;      /* فونت کوچیک‌تر */
+  }
 }
+
 
 
 
