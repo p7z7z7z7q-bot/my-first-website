@@ -120,3 +120,46 @@ nav a:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 20px #f59e0b;
 }
+
+/* ===== Dropdown Menu ===== */
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+/* محتوای کشویی */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  min-width: 160px;
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
+  z-index: 1000;
+}
+
+/* لینک‌های داخل کشویی */
+.dropdown-content a {
+  display: block;
+  padding: 8px 15px;
+  color: #facc15;
+  text-decoration: none;
+  font-size: 12px;
+  transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(250, 204, 21, 0.2);
+}
+
+/* فعال شدن با hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
