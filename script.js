@@ -1,4 +1,4 @@
-// منو همبرگری موبایل
+// ===== منو همبرگری موبایل =====
 const menuBtn = document.querySelector('.menu-btn');
 const nav = document.querySelector('nav');
 
@@ -6,11 +6,13 @@ menuBtn.addEventListener('click', () => {
     nav.classList.toggle('active');
 });
 
-// زیرمنوی موبایل برای "بازی‌ها ▾"
-const dropdownBtn = document.querySelector('.dropbtn');
-const dropdownContent = document.querySelector('.dropdown-content');
+// ===== زیرمنوهای موبایل (برای هر dropbtn جدا) =====
+const dropdownBtns = document.querySelectorAll('.dropbtn');
 
-dropdownBtn.addEventListener('click', (e) => {
-    e.preventDefault(); // جلوگیری از رفتن به لینک
-    dropdownContent.classList.toggle('open');
+dropdownBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault(); // جلوگیری از رفتن به لینک
+        const dropdownContent = btn.nextElementSibling; // فقط زیرمنوی مربوط به این دکمه
+        dropdownContent.classList.toggle('open');
+    });
 });
