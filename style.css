@@ -1,17 +1,13 @@
-/* ===========================
-   استایل کلی سایت
-=========================== */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Press Start 2P', monospace;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('R.M.jpg') no-repeat center center fixed;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url('R.M.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #fff;
+    color: #e5e7eb;
     text-align: center;
 }
 
-/* Header و منو */
 header {
     display: flex;
     justify-content: space-between;
@@ -22,24 +18,14 @@ header {
     color: #000;
 }
 
-.menu-btn {
-    font-size: 28px;
-    cursor: pointer;
-    display: none;
-    color: #000;
+header h1 {
+    margin: 0;
+    font-size: 2em;
 }
 
 nav {
     display: flex;
-    justify-content: center;
     gap: 25px;
-    flex-wrap: wrap;
-    padding: 15px;
-    margin-bottom: 20px;
-    background: rgba(0,0,0,0.05);
-    border-radius: 10px;
-    position: relative;
-    z-index: 500;
 }
 
 nav a {
@@ -58,21 +44,19 @@ nav a:hover {
     box-shadow: 0 0 10px #f59e0b;
 }
 
-/* Dropdown */
 .dropdown {
     position: relative;
 }
 
 .dropbtn {
     cursor: pointer;
-    display: inline-block;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
-    right: 0;
+    left: 0;
     background-color: rgba(0,0,0,0.85);
     min-width: 160px;
     border-radius: 8px;
@@ -97,17 +81,19 @@ nav a:hover {
     background-color: rgba(250, 204, 21, 0.2);
 }
 
-/* فعال شدن hover دسکتاپ */
-@media (min-width: 768px) {
-    .dropdown:hover .dropdown-content,
-    .dropdown:focus-within .dropdown-content {
-        display: block;
-        opacity: 1;
-        transform: translateY(0);
-    }
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Intro box */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
 .intro-box {
     background-color: rgba(128,0,128,0.5);
     display: inline-block;
@@ -139,7 +125,6 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-/* گیم کارت‌ها */
 .games {
     display: flex;
     justify-content: center;
@@ -184,51 +169,4 @@ nav a:hover {
 .game-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 20px #f59e0b;
-}
-
-/* موبایل */
-@media (max-width: 768px) {
-    .menu-btn {
-        display: block;
-    }
-
-    nav {
-        flex-direction: column;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-        background-color: rgba(0,0,0,0.9);
-        border-radius: 10px;
-    }
-
-    nav.active {
-        max-height: 500px;
-    }
-
-    nav a {
-        padding: 10px 20px;
-        border-bottom: 1px solid #444;
-    }
-
-    .dropdown-content {
-        position: static;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateY(0);
-        transition: max-height 0.3s ease, opacity 0.3s ease;
-        box-shadow: none;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .dropdown-content.open {
-        max-height: 500px;
-        opacity: 1;
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: none !important;
-    }
 }
