@@ -77,25 +77,30 @@ h1, p {
 
 nav {
   display: flex;
-  gap: 20px;
-  padding: 10px;
+  justify-content: center; /* منو وسط صفحه */
+  gap: 30px; /* فاصله بین لینک‌ها */
+  padding: 15px;
   background-color: rgba(0,0,0,0.7);
-  border-radius: 8px;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
 nav a {
   color: #facc15; /* زرد گیمینگ */
   text-decoration: none;
   font-weight: bold;
-  padding: 5px 10px;
-  transition: 0.3s;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 nav a:hover {
-  background-color: #f59e0b;
-  border-radius: 5px;
+  background-color: #f59e0b; /* نارنجی گیمینگ */
   color: #000;
+  transform: scale(1.1); /* بزرگ شدن کمی */
+  box-shadow: 0 0 10px #f59e0b;
 }
+
 
 
 
