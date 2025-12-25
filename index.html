@@ -5,236 +5,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>سایت گیمینگ من</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<style>
-/* ===========================
-   استایل کلی سایت
-=========================== */
-body {
-  font-family: 'Press Start 2P', monospace;
-  margin: 0;
-  padding: 0;
-  background: #111;
-  color: #fff;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-}
-
-.intro-box {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.start-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #ff3;
-  color: #000;
-  text-decoration: none;
-  margin-top: 10px;
-  font-weight: bold;
-  transition: transform 0.2s;
-}
-
-.start-btn:hover {
-  transform: scale(1.05);
-}
-
-/* ===========================
-   HEADER و منوی همبرگری
-=========================== */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #222;
-  color: #fff;
-  padding: 10px 20px;
-  position: relative;
-}
-
-/* دکمه همبرگری موبایل */
-.menu-btn {
-  font-size: 28px;
-  cursor: pointer;
-  user-select: none;
-  display: block;
-  color: #facc15;
-  z-index: 1001;
-}
-
-/* منوی اصلی موبایل */
-nav {
-  position: absolute;
-  top: 60px;
-  right: 0;
-  background-color: #333;
-  width: 200px;
-  max-height: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: max-height 0.4s ease;
-}
-
-nav.active {
-  max-height: 500px;
-}
-
-nav a {
-  padding: 10px 20px;
-  color: #fff;
-  text-decoration: none;
-  border-bottom: 1px solid #444;
-}
-
-nav a:hover {
-  background-color: #444;
-}
-
-/* Dropdown */
-.dropdown {
-  position: relative;
-}
-
-.dropbtn {
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  flex-direction: column;
-  background-color: #444;
-}
-
-.dropdown:hover .dropdown-content {
-  display: flex;
-}
-
-.dropdown a {
-  border: none;
-}
-
-/* دسکتاپ */
-@media (min-width: 768px) {
-  .menu-btn {
-    display: none;
-  }
-  nav {
-    display: flex !important;
-    position: static;
-    flex-direction: row;
-    background: none;
-    width: auto;
-    max-height: none;
-  }
-  nav a {
-    border: none;
-    padding: 0 15px;
-  }
-  .dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 150px;
-  }
-}
-
-/* گیم کارت‌ها */
-.games {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.game-card {
-  background: #222;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #444;
-  transition: transform 0.2s;
-}
-
-.game-card:hover {
-  transform: scale(1.03);
-}
-
-.game-card img {
-  max-width: 100%;
-  height: auto;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- HEADER با منو موبایل -->
 <header>
-  <h1>🎮 سایت گیمینگ من 🎮</h1>
-  <div class="menu-btn">&#9776;</div> <!-- دکمه همبرگری موبایل -->
+    <h1>🎮 سایت گیمینگ من 🎮</h1>
+    <div class="menu-btn">&#9776;</div>
 </header>
 
-<!-- NAV اصلی -->
 <nav>
-  <a href="#">خانه</a>
-  <a href="#">درباره من</a>
-  <div class="dropdown">
-    <a href="#" class="dropbtn">بازی‌ها ▾</a>
-    <div class="dropdown-content">
-      <a href="#">اکشن</a>
-      <a href="#">ماجرایی</a>
-      <a href="#">آنلاین</a>
+    <a href="#">خانه</a>
+    <a href="#">درباره من</a>
+    <div class="dropdown">
+        <a href="#" class="dropbtn">بازی‌ها ▾</a>
+        <div class="dropdown-content">
+            <a href="#">اکشن</a>
+            <a href="#">ماجرایی</a>
+            <a href="#">آنلاین</a>
+        </div>
     </div>
-  </div>
 </nav>
 
 <div class="container">
-  <div class="intro-box">
-    <p>این اولین صفحه گیمینگ من هست و آنلاین شده!</p>
-    <a class="start-btn" href="#">شروع بازی</a>
-  </div>
-
-  <main class="games">
-    <div class="game-card">
-      <img src="game1.png" alt="بازی ۱">
-      <h2>بازی ۱</h2>
-      <p>توضیح کوتاه درباره بازی ۱</p>
-      <a href="#">شروع بازی</a>
+    <div class="intro-box">
+        <p>این اولین صفحه گیمینگ من هست و آنلاین شده!</p>
+        <a class="start-btn" href="#">شروع بازی</a>
     </div>
 
-    <div class="game-card">
-      <img src="game2.jpg" alt="بازی ۲">
-      <h2>بازی ۲</h2>
-      <p>توضیح کوتاه درباره بازی ۲</p>
-      <a href="#">شروع بازی</a>
-    </div>
+    <main class="games">
+        <div class="game-card">
+            <img src="game1.png" alt="بازی ۱">
+            <h2>بازی ۱</h2>
+            <p>توضیح کوتاه درباره بازی ۱</p>
+            <a href="#">شروع بازی</a>
+        </div>
 
-    <div class="game-card">
-      <img src="game3.jpg" alt="بازی ۳">
-      <h2>بازی ۳</h2>
-      <p>توضیح کوتاه درباره بازی ۳</p>
-      <a href="#">شروع بازی</a>
-    </div>
-  </main>
+        <div class="game-card">
+            <img src="game2.jpg" alt="بازی ۲">
+            <h2>بازی ۲</h2>
+            <p>توضیح کوتاه درباره بازی ۲</p>
+            <a href="#">شروع بازی</a>
+        </div>
+
+        <div class="game-card">
+            <img src="game3.jpg" alt="بازی ۳">
+            <h2>بازی ۳</h2>
+            <p>توضیح کوتاه درباره بازی ۳</p>
+            <a href="#">شروع بازی</a>
+        </div>
+    </main>
 </div>
 
-<!-- JS برای منو موبایل -->
-<script>
-const menuBtn = document.querySelector('.menu-btn');
-const nav = document.querySelector('nav');
-
-menuBtn.addEventListener('click', () => {
-  nav.classList.toggle('active');
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
