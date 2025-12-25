@@ -151,12 +151,7 @@ nav a:hover {
   color: #fff;
 }
 /* تنظیمات صفحه موبایل */
-@media (max-width: 768px)
-   nav a {
-    padding: 12px 25px;   /* بیشتر کردن padding برای مستطیل شدن */
-    border-radius: 0;     /* گوشه‌ها مربعی بشه */
-  }
-{
+@media (max-width: 768px) {
   .games {
     flex-direction: column;
     align-items: center;
