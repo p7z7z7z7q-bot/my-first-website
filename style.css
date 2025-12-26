@@ -3,8 +3,7 @@ body {
     padding: 0;
     font-family: 'Press Start 2P', monospace;
     background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3)), 
-                background: url('../../../../R.M.jpg') no-repeat center center fixed;
-}
+                url('R.M.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #e5e7eb;
     text-align: center;
@@ -234,9 +233,6 @@ body.loaded {
     transform: scale(1.1);
     box-shadow: 0 0 10px #a855f7;
 }
-
-
-
 
 
 
