@@ -32,7 +32,7 @@ h1 {
 
 .start-btn {
     display: inline-block;
-    margin-top: 15px;
+    margin: 15px 0; 
     padding: 10px 20px;
     background-color: #facc15;
     color: #000;
@@ -233,6 +233,7 @@ body.loaded {
     transform: scale(1.1);
     box-shadow: 0 0 10px #a855f7;
 }
+
 
 
 
