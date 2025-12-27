@@ -10,22 +10,13 @@ body {
   background-size: cover;
   color: #e5e7eb;
   text-align: center;
-}
 
-/* =========================
-   Page Transition (Safe)
-   نکته: اگر JS لود نشه صفحه خالی نمی‌مونه
-========================= */
-body {
   opacity: 1;
   transition: opacity 0.4s ease;
 }
-body.is-loading {
-  opacity: 0;
-}
-body.loaded {
-  opacity: 1;
-}
+
+body.is-loading { opacity: 0; }
+body.loaded { opacity: 1; }
 
 /* =========================
    Layout
@@ -43,7 +34,7 @@ h1 {
 }
 
 /* =========================
-   Intro Box (Existing)
+   Intro Box (اگر جای دیگه استفاده شد)
 ========================= */
 .intro-box {
   background-color: rgba(128,0,128,0.5);
@@ -54,7 +45,7 @@ h1 {
 }
 
 /* =========================
-   Buttons (Existing)
+   Buttons
 ========================= */
 .start-btn {
   display: inline-block;
@@ -84,8 +75,6 @@ nav {
   background-color: rgba(0,0,0,0.7);
   border-radius: 10px;
   margin-bottom: 30px;
-
-  /* برای اینکه dropdown روی بقیه عناصر نیفته */
   position: relative;
   z-index: 500;
 }
@@ -158,16 +147,13 @@ nav a:hover {
 /* =========================
    Dropdown Menu (Final)
 ========================= */
-.dropdown {
-  position: relative;
-}
+.dropdown { position: relative; }
 
 .dropbtn {
   cursor: pointer;
-  display: inline-block; /* حس دکمه */
+  display: inline-block;
 }
 
-/* محتوای کشویی */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -180,14 +166,12 @@ nav a:hover {
   box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
   z-index: 1000;
 
-  /* انیمیشن نرم‌تر */
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.25s ease, transform 0.25s ease;
-  margin-top: 5px; /* جلوگیری از لرزش */
+  margin-top: 5px;
 }
 
-/* لینک‌های داخل کشویی */
 .dropdown-content a {
   display: block;
   padding: 8px 15px;
@@ -201,15 +185,8 @@ nav a:hover {
   background-color: rgba(250, 204, 21, 0.2);
 }
 
-/* باز شدن با hover یا focus */
 .dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* باز شدن با کلیک (JS کلاس open اضافه می‌کند) */
+.dropdown:focus-within .dropdown-content,
 .dropdown.open .dropdown-content {
   display: block;
   opacity: 1;
@@ -232,9 +209,7 @@ nav a:hover {
   transition: 0.3s;
 }
 
-.social-btn i {
-  font-size: 16px;
-}
+.social-btn i { font-size: 16px; }
 
 .social-btn:hover {
   background-color: #a855f7;
@@ -244,8 +219,7 @@ nav a:hover {
 }
 
 /* =========================
-   HERO BOX (New / Fixed)
-   مشکل کشیدگی اینجا حل شد
+   HERO BOX
 ========================= */
 .hero-box {
   background: linear-gradient(135deg, #2b003d, #12001a);
@@ -254,15 +228,9 @@ nav a:hover {
   text-align: center;
   box-shadow: 0 0 25px rgba(155, 0, 255, 0.4);
 
-  /* ✅ جلوگیری از کشیدگی: مثل intro-box جمع‌وجور */
   display: inline-block;
   width: min(900px, 100%);
   margin: 0 auto 30px;
-}
-
-.hero-box h1 {
-  color: #ffcc00;
-  margin-bottom: 5px;
 }
 
 .hero-box p {
@@ -272,43 +240,8 @@ nav a:hover {
 }
 
 /* =========================
-   Search UI (Fixed / Theme)
-   مشکل کشیدگی دکمه‌ها اینجا حل شد
-========================= */
-.search-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap; /* اگر صفحه کوچیک شد بهم نریزه */
-}
-
-.search-wrapper input {
-  /* ✅ کنترل کشیدگی */
-  flex: 0 1 360px;
-  width: 360px;
-  max-width: 80vw;
-
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 2px solid rgba(250, 204, 21, 0.9);
-  outline: none;
-
-  background: rgba(0,0,0,0.55);
-  color: #e5e7eb;
-
-  box-sh
-   
-   .search-input {
-  font-family: 'Press Start 2P', monospace;
-}
-
-/* =========================
    Search (Animated / Gaming Theme)
-   Add to END of style.css
 ========================= */
-
-/* کانتینر سرچ داخل hero-box */
 .search-wrapper{
   display: inline-flex;
   align-items: center;
@@ -325,7 +258,6 @@ nav a:hover {
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
 }
 
-/* وقتی موس روی سرچ رفت */
 .search-wrapper:hover,
 .search-wrapper:focus-within,
 .search-wrapper.open{
@@ -335,8 +267,9 @@ nav a:hover {
   background: rgba(0,0,0,0.35);
 }
 
-/* input در حالت بسته */
 .search-input{
+  font-family: 'Press Start 2P', monospace;
+
   width: 0;
   opacity: 0;
   padding: 0;
@@ -349,14 +282,11 @@ nav a:hover {
   color: #e5e7eb;
 
   border-radius: 12px;
-  box-shadow: 0 0 0 rgba(250,204,21,0);
-
   pointer-events: none;
 
   transition: width .35s ease, opacity .25s ease, padding .35s ease, box-shadow .25s ease, border-color .25s ease, transform .25s ease;
 }
 
-/* وقتی باز شد */
 .search-wrapper:hover .search-input,
 .search-wrapper:focus-within .search-input,
 .search-wrapper.open .search-input{
@@ -371,13 +301,11 @@ nav a:hover {
   box-shadow: 0 0 16px rgba(250, 204, 21, 0.18);
 }
 
-/* فوکوس داخل input */
 .search-input:focus{
   border-color: rgba(168, 85, 247, 0.9);
   box-shadow: 0 0 18px rgba(168, 85, 247, 0.30);
 }
 
-/* دکمه سرچ (ذره‌بین) */
 .search-btn{
   position: relative;
   display: inline-flex;
@@ -394,12 +322,10 @@ nav a:hover {
   color: #0b0b0f;
 
   cursor: pointer;
-
   box-shadow: 0 0 18px rgba(250, 204, 21, 0.22);
   transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
 
-/* افکت glow بنفش پشت دکمه */
 .search-btn::after{
   content: "";
   position: absolute;
@@ -436,13 +362,13 @@ nav a:hover {
   transform: rotate(-10deg) scale(1.08);
 }
 
-/* اگر کاربر ترجیح میده انیمیشن کم باشه */
 @media (prefers-reduced-motion: reduce){
   .search-wrapper, .search-input, .search-btn, .search-btn::after, .search-btn i{
     transition: none !important;
   }
 }
 
-
-
-
+@media (max-width: 768px) {
+  nav { flex-wrap: wrap; gap: 15px; }
+  .dropdown-content { right: auto; left: 0; min-width: 140px; }
+}
