@@ -156,7 +156,7 @@ nav a:hover {
 }
 
 /* =========================
-   Dropdown Menu
+   Dropdown Menu (Final)
 ========================= */
 .dropdown {
   position: relative;
@@ -201,7 +201,7 @@ nav a:hover {
   background-color: rgba(250, 204, 21, 0.2);
 }
 
-/* فعال شدن با hover و focus */
+/* باز شدن با hover یا focus */
 .dropdown:hover .dropdown-content,
 .dropdown:focus-within .dropdown-content {
   display: block;
@@ -209,12 +209,12 @@ nav a:hover {
   transform: translateY(0);
 }
 
+/* باز شدن با کلیک (JS کلاس open اضافه می‌کند) */
 .dropdown.open .dropdown-content {
   display: block;
   opacity: 1;
   transform: translateY(0);
 }
-
 
 /* =========================
    Social Buttons (About)
@@ -302,6 +302,7 @@ nav a:hover {
    .search-input {
   font-family: 'Press Start 2P', monospace;
 }
+
 
 
 
