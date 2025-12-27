@@ -90,3 +90,73 @@ if (searchWrap && searchInput && searchBtn) {
     }
   });
 }
+
+// ==============================
+// Search Filter (Real)
+// ==============================
+const gamesContainer = document.querySelector(".games");
+const gameCards = Array.from(document.querySelectorAll(".game-card"));
+const noResultsEl = document.querySelector(".no-results");
+
+const normalize = (s) =>
+  (s || "")
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+
+const filterCards = (query) => {
+  const q = normalize(query);
+  let visibleCount = 0;
+
+  gameCards.forEach((card) => {
+    const title = card.getAttribute("data-title") || card.querySelector("h2")?.innerText || "";
+    const desc  = card.getAttribute("data-desc")  || card.querySelector("p")?.innerText || "";
+
+    const haystack = normalize(title + " " + desc);
+
+    const match = q === "" ? true : haystack.includes(q);
+    card.style.display = match ? "" : "none";
+    if (match) visibleCount++;
+  });
+
+  if (noResultsEl) {
+    noResultsEl.hidden = !(q !== "" && visibleCount === 0);
+  }
+};
+
+// تایپ کردن داخل input => فیلتر لحظه‌ای
+if (searchInput && gameCards.length) {
+  searchInput.addEventListener("input", (e) => {
+    filterCards(e.target.value);
+  });
+
+  // Enter هم کار کند
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      filterCards(searchInput.value);
+    }
+
+    // Esc => پاک کردن + نمایش همه
+    if (e.key === "Escape") {
+      searchInput.value = "";
+      filterCards("");
+    }
+  });
+}
+
+// کلیک روی دکمه سرچ => اگر بسته بود باز کن، اگر باز بود فیلتر کن
+if (searchBtn) {
+  searchBtn.addEventListener("click", () => {
+    // اگر هنوز باز نشده، باز کن
+    if (!searchWrap.classList.contains("open")) {
+      searchWrap.classList.add("open");
+      searchInput.focus();
+      return;
+    }
+    // اگر بازه، سرچ کن
+    filterCards(searchInput.value);
+  });
+}
+
