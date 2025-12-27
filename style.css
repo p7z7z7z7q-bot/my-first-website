@@ -1,134 +1,170 @@
+/* =========================
+   Base / Body
+========================= */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Press Start 2P', monospace;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3)), 
-                url('R.M.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #e5e7eb;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', monospace;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3)),
+              url('R.M.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #e5e7eb;
+  text-align: center;
 }
 
+/* =========================
+   Page Transition (Safe)
+   نکته: اگر JS لود نشه صفحه خالی نمی‌مونه
+========================= */
+body {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+body.is-loading {
+  opacity: 0;
+}
+body.loaded {
+  opacity: 1;
+}
+
+/* =========================
+   Layout
+========================= */
 .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
 }
 
 h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 5px #000;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px #000;
 }
 
-/* Intro box */
+/* =========================
+   Intro Box (Existing)
+========================= */
 .intro-box {
-    background-color: rgba(128,0,128,0.5); /* رنگ بنفش شفاف */
-    display: inline-block;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+  background-color: rgba(128,0,128,0.5);
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
+/* =========================
+   Buttons (Existing)
+========================= */
 .start-btn {
-    display: inline-block;
-    margin: 15px 0; 
-    padding: 10px 20px;
-    background-color: #facc15;
-    color: #000;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
+  display: inline-block;
+  margin: 15px 0;
+  padding: 10px 20px;
+  background-color: #facc15;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .start-btn:hover {
-    background-color: #f59e0b;
-    color: #fff;
+  background-color: #f59e0b;
+  color: #fff;
 }
 
-/* Nav menu */
+/* =========================
+   Nav menu
+========================= */
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 15px;
-    background-color: rgba(0,0,0,0.7);
-    border-radius: 10px;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  margin-bottom: 30px;
+
+  /* برای اینکه dropdown روی بقیه عناصر نیفته */
+  position: relative;
+  z-index: 500;
 }
 
 nav a {
-    color: #facc15;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+  color: #facc15;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #f59e0b;
-    color: #000;
-    transform: scale(1.1);
-    box-shadow: 0 0 10px #f59e0b;
+  background-color: #f59e0b;
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #f59e0b;
 }
 
-/* Game cards */
+/* =========================
+   Game cards
+========================= */
 .games {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .game-card {
-    background-color: rgba(128,0,128,0.5);
-    color: #e5e7eb;
-    padding: 15px;
-    border-radius: 10px;
-    width: 200px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+  background-color: rgba(128,0,128,0.5);
+  color: #e5e7eb;
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .game-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .game-card a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #facc15;
-    color: #000;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #facc15;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .game-card a:hover {
-    background-color: #f59e0b;
-    color: #fff;
+  background-color: #f59e0b;
+  color: #fff;
 }
 
 .game-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px #f59e0b;
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #f59e0b;
 }
 
-/* ===== Dropdown Menu ===== */
-
+/* =========================
+   Dropdown Menu
+========================= */
 .dropdown {
   position: relative;
 }
 
 .dropbtn {
   cursor: pointer;
+  display: inline-block; /* حس دکمه */
 }
 
 /* محتوای کشویی */
@@ -143,6 +179,12 @@ nav a:hover {
   padding: 10px 0;
   box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
   z-index: 1000;
+
+  /* انیمیشن نرم‌تر */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  margin-top: 5px; /* جلوگیری از لرزش */
 }
 
 /* لینک‌های داخل کشویی */
@@ -159,121 +201,93 @@ nav a:hover {
   background-color: rgba(250, 204, 21, 0.2);
 }
 
-/* فعال شدن با hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* ===== Dropdown Fix & Upgrade ===== */
-
-/* برای اینکه منو روی بقیه عناصر نیفته */
-nav {
-  position: relative;
-  z-index: 500;
-}
-
-/* کلیک هم مثل hover عمل کنه */
-.dropdown:focus-within .dropdown-content {
-  display: block;
-}
-
-/* دکمه کشویی حس دکمه بگیره */
-.dropbtn {
-  display: inline-block;
-}
-
-/* جلوگیری از لرزش موقع رفتن موس */
-.dropdown-content {
-  margin-top: 5px;
-}
-
-/* انیمیشن نرم‌تر */
-.dropdown-content {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
+/* فعال شدن با hover و focus */
 .dropdown:hover .dropdown-content,
 .dropdown:focus-within .dropdown-content {
+  display: block;
   opacity: 1;
   transform: translateY(0);
-  display: block;
-}
-/* ===== Page Transition ===== */
-body {
-  opacity: 0;
-  transition: opacity 0.4s ease;
 }
 
-body.loaded {
-  opacity: 1;
-}
-
+/* =========================
+   Social Buttons (About)
+========================= */
 .social-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 15px;
-    background-color: #facc15; /* زرد */
-    color: #000;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  background-color: #facc15;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .social-btn i {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .social-btn:hover {
-    background-color: #a855f7; /* بنفش ملایم */
-    color: #fff;
-    transform: scale(1.1);
-    box-shadow: 0 0 10px #a855f7;
+  background-color: #a855f7;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #a855f7;
 }
 
-/*هیرو باکس*/
+/* =========================
+   HERO BOX (New / Fixed)
+   مشکل کشیدگی اینجا حل شد
+========================= */
 .hero-box {
-    background: linear-gradient(135deg, #2b003d, #12001a);
-    padding: 20px 20px; /* padding عمودی کمتر شد */
-    border-radius: 18px;
-    text-align: center;
-    box-shadow: 0 0 25px rgba(155, 0, 255, 0.4);
-    margin-bottom: 30px;
+  background: linear-gradient(135deg, #2b003d, #12001a);
+  padding: 20px 20px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(155, 0, 255, 0.4);
+
+  /* ✅ جلوگیری از کشیدگی: مثل intro-box جمع‌وجور */
+  display: inline-block;
+  width: min(900px, 100%);
+  margin: 0 auto 30px;
 }
 
 .hero-box h1 {
-    color: #ffcc00;
-    margin-bottom: 5px; /* فاصله کمتر شد */
+  color: #ffcc00;
+  margin-bottom: 5px;
 }
 
 .hero-box p {
-    color: #eee;
-    margin-bottom: 15px; /* فاصله کمتر شد */
-    font-size: 14px;
+  color: #eee;
+  margin-bottom: 15px;
+  font-size: 14px;
 }
 
+/* =========================
+   Search UI (Fixed / Theme)
+   مشکل کشیدگی دکمه‌ها اینجا حل شد
+========================= */
 .search-wrapper {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap; /* اگر صفحه کوچیک شد بهم نریزه */
 }
 
+.search-wrapper input {
+  /* ✅ کنترل کشیدگی */
+  flex: 0 1 360px;
+  width: 360px;
+  max-width: 80vw;
 
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid rgba(250, 204, 21, 0.9);
+  outline: none;
 
+  background: rgba(0,0,0,0.55);
+  color: #e5e7eb;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  box-sh
