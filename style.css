@@ -373,3 +373,13 @@ nav a:hover {
   nav { flex-wrap: wrap; gap: 15px; }
   .dropdown-content { right: auto; left: 0; min-width: 140px; }
 }
+
+/*نتیجه‌ای نبود*/
+.no-results{
+  width: 100%;
+  margin-top: 15px;
+  color: #facc15;
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.25);
+  font-size: 12px;
+}
+
