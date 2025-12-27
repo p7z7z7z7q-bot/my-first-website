@@ -1,101 +1,77 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سایت گیمینگ من</title>
-    <!-- فونت گوگل -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-      <!-- فونت آوسام برای آیکون‌ها -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سایت گیمینگ من</title>
+
+  <!-- فونت گوگل -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- فونت آوسام برای آیکون‌ها -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- CSS خودت -->
-    <link rel="stylesheet" href="style.css">
+
+  <!-- CSS خودت -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>🎮 Welcome to My Gaming Site 🎮</h1>
-        
-        <div class="search-wrapper">
+  <div class="container">
+    <h1>🎮 Welcome to My Gaming Site 🎮</h1>
+
+    <!-- ===== HERO BOX (تیتر + سرچ داخل یک باکس) ===== -->
     <div class="hero-box">
-    <p>این اولین صفحه گیمینگ من هست و آنلاین شده!</p>
+      <p>این اولین صفحه گیمینگ من هست و آنلاین شده!</p>
 
-    <div class="search-wrapper">
-        <div class="search-container">
-            <input type="text" placeholder="...جستجوی بازی">
-            <button class="search-btn">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
+      <!-- ===== Search UI ===== -->
+      <div class="search-wrapper">
+        <input class="search-input" type="text" placeholder="...جستجوی بازی">
+        <button class="search-btn" type="button" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
     </div>
-</div>
-          
-<nav>
-    <a href="index.html">خانه</a>
-    <a href="about.html">درباره من</a>
-    <div class="dropdown">
+
+    <!-- ===== NAV ===== -->
+    <nav>
+      <a href="index.html">خانه</a>
+      <a href="about.html">درباره من</a>
+
+      <div class="dropdown">
         <a href="#" class="dropbtn">بازی‌ها ▾</a>
- <div class="dropdown-content">
-    <a href="genre/action/html/action.html">اکشن</a>
-   <a href="genre/adventure/html/adventure.html">ماجرایی</a>
-    <a href="genre/online/html/online.html">آنلاین</a>
-</div>
-    </div>
-</nav>
+        <div class="dropdown-content">
+          <a href="genre/action/html/action.html">اکشن</a>
+          <a href="genre/adventure/html/adventure.html">ماجرایی</a>
+          <a href="genre/online/html/online.html">آنلاین</a>
+        </div>
+      </div>
+    </nav>
 
-        <main class="games">
-            <div class="game-card">
-                <img src="game1.png" alt="بازی ۱">
-                <h2>بازی ۱</h2>
-                <p>توضیح کوتاه درباره بازی ۱</p>
-                <a href="#">شروع بازی</a>
-            </div>
+    <!-- ===== GAME CARDS ===== -->
+    <main class="games">
+      <div class="game-card">
+        <img src="game1.png" alt="بازی ۱">
+        <h2>بازی ۱</h2>
+        <p>توضیح کوتاه درباره بازی ۱</p>
+        <a href="#">شروع بازی</a>
+      </div>
 
-            <div class="game-card">
-                <img src="game2.jpg" alt="بازی ۲">
-                <h2>بازی ۲</h2>
-                <p>توضیح کوتاه درباره بازی ۲</p>
-                <a href="#">شروع بازی</a>
-            </div>
+      <div class="game-card">
+        <img src="game2.jpg" alt="بازی ۲">
+        <h2>بازی ۲</h2>
+        <p>توضیح کوتاه درباره بازی ۲</p>
+        <a href="#">شروع بازی</a>
+      </div>
 
-            <div class="game-card">
-                <img src="game3.jpg" alt="بازی ۳">
-                <h2>بازی ۳</h2>
-                <p>توضیح کوتاه درباره بازی ۳</p>
-                <a href="#">شروع بازی</a>
-            </div>
-        </main>
-    </div>
-    <script src="script.js"></script>
+      <div class="game-card">
+        <img src="game3.jpg" alt="بازی ۳">
+        <h2>بازی ۳</h2>
+        <p>توضیح کوتاه درباره بازی ۳</p>
+        <a href="#">شروع بازی</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
