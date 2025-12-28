@@ -28,7 +28,7 @@ document.addEventListener("click", (e) => {
 });
 
 // ==============================
-// Smooth page transition for internal links
+// Smooth page transition for internal links (static links)
 // ==============================
 const isRealInternalLink = (a) => {
   const hrefAttr = a.getAttribute("href");
@@ -65,8 +65,6 @@ document.querySelectorAll("a").forEach((link) => {
 
 // ==============================
 // SEARCH (Global - via data/games.json)
-// HTML expected:
-// .search-wrapper .search-input .search-btn .search-results
 // ==============================
 const searchWrap = document.querySelector(".search-wrapper");
 const searchInput = document.querySelector(".search-input");
@@ -91,7 +89,6 @@ const resolveUrl = (u) => {
   }
 };
 
-// normalize helper
 const norm = (s) =>
   (s || "")
     .toString()
@@ -107,9 +104,9 @@ async function loadGamesIndex() {
     if (!res.ok) throw new Error("data/games.json not found / fetch failed");
 
     const data = await res.json();
-    if (Array.isArray(data)) return data;
+    if (!Array.isArray(data)) throw new Error("games.json is not an array");
 
-    throw new Error("games.json is not an array");
+    return data;
   } catch (e) {
     console.warn("[SEARCH] games.json load failed. Fallback to current page cards.", e);
 
@@ -171,21 +168,25 @@ function renderResults(items, q) {
   }
 
   const html = lastRendered
-  .map((g) => {
-    const title = g.title || "";
-    const genre = g.genre ? ` — ${g.genre}` : "";
+    .map((g) => {
+      const title = g.title || "";
+      const genreText = g.genre ? g.genre : "";
+      const base = resolveUrl(g.url || "#");
 
-    const base = resolveUrl(g.url || "#");
+      // لینک با q برای اسکرول/هایلایت در صفحه مقصد
+      const url =
+        base === "#"
+          ? "#"
+          : `${base}${base.includes("?") ? "&" : "?"}q=${encodeURIComponent(title)}`;
 
-    // ✅ لینک با q برای اسکرول/هایلایت در صفحه مقصد
-    const url =
-      base === "#"
-        ? "#"
-        : `${base}${base.includes("?") ? "&" : "?"}q=${encodeURIComponent(title)}`;
-
-    return `<a href="${url}" class="search-item">${title}${genre}</a>`;
-  })
-  .join("");
+      return `
+        <a href="${url}" class="search-item">
+          <span>${title}</span>
+          <span class="meta">${genreText}</span>
+        </a>
+      `;
+    })
+    .join("");
 
   resultsBox.hidden = false;
   resultsBox.innerHTML = html;
@@ -209,7 +210,7 @@ function searchGames(q) {
   renderResults(filtered, q);
 }
 
-// Click on a result (smooth transition)
+// click on a result (smooth transition)
 document.addEventListener("click", (e) => {
   const a = e.target.closest(".search-results a");
   if (!a) return;
@@ -231,9 +232,7 @@ document.addEventListener("click", (e) => {
 });
 
 (async function initSearch() {
-  if (!searchWrap || !searchInput || !searchBtn || !resultsBox) {
-    return; // اگر یک صفحه سرچ UI ندارد، کل سایت error نمی‌دهد
-  }
+  if (!searchWrap || !searchInput || !searchBtn || !resultsBox) return;
 
   allGames = await loadGamesIndex();
 
@@ -243,23 +242,36 @@ document.addEventListener("click", (e) => {
     searchGames(searchInput.value);
   });
 
+  // focus => open
+  searchInput.addEventListener("focus", () => {
+    openSearchUI();
+    searchGames(searchInput.value);
+  });
+
   // Enter => go to first result
   searchInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
 
-      const first = lastRendered?.[0];
-      if (first && first.url && first.url !== "#") {
-        const target = resolveUrl(first.url); // ✅ مهم
+      // اگر نتیجه داریم، برو روی اولین نتیجه
+      if (lastRendered.length && lastRendered[0]?.url && lastRendered[0].url !== "#") {
+        const base = resolveUrl(lastRendered[0].url);
+        const target = `${base}${base.includes("?") ? "&" : "?"}q=${encodeURIComponent(
+          lastRendered[0].title || ""
+        )}`;
+
         document.body.classList.remove("loaded");
         document.body.classList.add("is-loading");
+
         setTimeout(() => {
-          window.location.href = resolveUrl(first.url);
-       }, 400);
-     } else {
-       searchGames(searchInput.value);
-     }
-  }
+          window.location.href = target;
+        }, 400);
+        return;
+      }
+
+      // اگر نتیجه نداریم، فقط پیام "هیچ نتیجه‌ای..." بیاد
+      searchGames(searchInput.value);
+    }
 
     if (e.key === "Escape") {
       e.preventDefault();
@@ -275,12 +287,6 @@ document.addEventListener("click", (e) => {
       openSearchUI();
       return;
     }
-    searchGames(searchInput.value);
-  });
-
-  // focus => open
-  searchInput.addEventListener("focus", () => {
-    openSearchUI();
     searchGames(searchInput.value);
   });
 
@@ -302,15 +308,12 @@ function findBestCardMatch(query) {
   const cards = Array.from(document.querySelectorAll(".game-card"));
   if (!cards.length) return null;
 
-  // اولویت: data-title دقیق
   let exact = cards.find((c) => norm(c.dataset.title) === q);
   if (exact) return exact;
 
-  // بعد: h2 دقیق
   exact = cards.find((c) => norm(c.querySelector("h2")?.textContent) === q);
   if (exact) return exact;
 
-  // بعد: شامل شدن
   return (
     cards.find((c) => norm(c.dataset.title).includes(q)) ||
     cards.find((c) => norm(c.querySelector("h2")?.textContent).includes(q)) ||
@@ -324,11 +327,9 @@ function highlightAndScrollToCard(card) {
   card.classList.add("match-highlight");
   card.scrollIntoView({ behavior: "smooth", block: "center" });
 
-  // بعد چند ثانیه هایلایت برداشته شود
   setTimeout(() => card.classList.remove("match-highlight"), 2500);
 }
 
-// وقتی صفحه لود شد، اگر q داریم برو همون کارت
 window.addEventListener("load", () => {
   const params = new URLSearchParams(window.location.search);
   const q = params.get("q");
@@ -337,7 +338,3 @@ window.addEventListener("load", () => {
   const card = findBestCardMatch(q);
   highlightAndScrollToCard(card);
 });
-
-console.log("TOP MATCH:", filtered[0]);
-
-
