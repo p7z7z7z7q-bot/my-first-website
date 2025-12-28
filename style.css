@@ -383,3 +383,37 @@ nav a:hover {
   font-size: 12px;
 }
 
+/*لیست نتایج*/
+.search-results{
+  margin: 12px auto 0;
+  width: min(640px, 72vw);
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 0 18px rgba(168,85,247,0.18);
+  padding: 8px;
+  text-align: right;
+}
+
+.search-results a{
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.search-results a:hover{
+  background: rgba(250,204,21,0.14);
+  color: #facc15;
+}
+
+.search-results .hint{
+  padding: 10px 12px;
+  color: #facc15;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
