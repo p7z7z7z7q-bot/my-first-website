@@ -1,1 +1,21 @@
+[
+  {
+    "title": "بازی ۱",
+    "desc": "توضیح کوتاه درباره بازی ۱",
+    "url": "index.html",
+    "genre": "home"
+  },
+  {
+    "title": "Wolverine",
+    "desc": "اکشن خفن با حال و هوای مارول",
+    "url": "genre/action/html/action.html",
+    "genre": "action"
+  },
+  {
+    "title": "Tomb Raider",
+    "desc": "ماجرایی، اکتشاف و داستانی",
+    "url": "genre/adventure/html/adventure.html",
+    "genre": "adventure"
+  }
+]
 
