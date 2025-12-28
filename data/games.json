@@ -27,7 +27,7 @@
   {
     "title": "Call of Duty",
     "desc": "بازی اکشن",
-    "url": "genre/online/html/online.html#Call of Duty",
+    "url": "genre/action/html/action.html#call-of-duty",
     "genre": "action"
   },
   {
@@ -39,7 +39,7 @@
   {
     "title": "Deadpool",
     "desc": "بازی اکشن",
-    "url": "genre/online/html/online.html#Deadpool",
+    "url": "genre/action/html/action.html#deadpool",
     "genre": "action"
   },
 
@@ -52,19 +52,19 @@
   {
     "title": "Uncharted",
     "desc": "بازی ماجرایی",
-    "url": "genre/online/html/online.html#Uncharted",
+    "url": "genre/adventure/html/adventure.html#uncharted",
     "genre": "adventure"
   },
   {
     "title": "God of War",
     "desc": "بازی ماجرایی",
-    "url": "genre/online/html/online.html#God of War",
+    "url": "genre/adventure/html/adventure.html#god-of-war",
     "genre": "adventure"
   },
   {
     "title": "Assassin's Creed",
     "desc": "بازی ماجرایی",
-    "url": "genre/online/html/online.html#Assassin's Creed",
+    "url": "genre/adventure/html/adventure.html#assassins-creed",
     "genre": "adventure"
   },
 
@@ -77,19 +77,19 @@
   {
     "title": "Dota 2",
     "desc": "بازی آنلاین",
-    "url": "genre/online/html/online.html#Dota 2",
+    "url": "genre/online/html/online.html#dota-2",
     "genre": "online"
   },
   {
     "title": "League of Legends",
     "desc": "بازی آنلاین",
-    "url": "genre/online/html/online.html#League of Legends",
+    "url": "genre/online/html/online.html#league-of-legends",
     "genre": "online"
   },
   {
     "title": "PUBG",
     "desc": "بازی آنلاین",
-    "url": "genre/online/html/online.html#PUBG",
+    "url": "genre/online/html/online.html#pubg",
     "genre": "online"
   }
 ]
