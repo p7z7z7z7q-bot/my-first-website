@@ -5,13 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>سایت گیمینگ من</title>
 
-  <!-- فونت گوگل -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
-  <!-- فونت آوسام برای آیکون‌ها -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -24,13 +19,16 @@
       <p>این اولین صفحه گیمینگ من هست و آنلاین شده!</p>
 
       <!-- Search UI -->
-    <div class="search-wrapper">
-       <input class="search-input" type="text" placeholder="...جستجوی بازی">
-       <button class="search-btn" type="button">
-       <i class="fas fa-search"></i>
-       </button>
-       <div class="search-results" hidden></div>
-    </div>
+      <div class="search-wrapper">
+        <input class="search-input" type="text" placeholder="...جستجوی بازی">
+        <button class="search-btn" type="button">
+          <i class="fas fa-search"></i>
+        </button>
+
+        <!-- نتایج سرچ -->
+        <div class="search-results" hidden></div>
+      </div>
+    </div> <!-- ✅ این خیلی مهم بود: بستن hero-box -->
 
     <!-- NAV -->
     <nav>
@@ -47,36 +45,31 @@
       </div>
     </nav>
 
-   <!-- GAME CARDS -->
-<main class="games">
+    <!-- GAME CARDS -->
+    <main class="games">
+      <div class="game-card" data-title="بازی ۱" data-desc="توضیح کوتاه درباره بازی ۱">
+        <img src="game1.png" alt="بازی ۱">
+        <h2>بازی ۱</h2>
+        <p>توضیح کوتاه درباره بازی ۱</p>
+        <a href="#">شروع بازی</a>
+      </div>
 
-  <div class="game-card" data-title="بازی ۱" data-desc="توضیح کوتاه درباره بازی ۱">
-    <img src="game1.png" alt="بازی ۱">
-    <h2>بازی ۱</h2>
-    <p>توضیح کوتاه درباره بازی ۱</p>
-    <a href="#">شروع بازی</a>
-  </div>
+      <div class="game-card" data-title="بازی ۲" data-desc="توضیح کوتاه درباره بازی ۲">
+        <img src="game2.jpg" alt="بازی ۲">
+        <h2>بازی ۲</h2>
+        <p>توضیح کوتاه درباره بازی ۲</p>
+        <a href="#">شروع بازی</a>
+      </div>
 
-  <div class="game-card" data-title="بازی ۲" data-desc="توضیح کوتاه درباره بازی ۲">
-    <img src="game2.jpg" alt="بازی ۲">
-    <h2>بازی ۲</h2>
-    <p>توضیح کوتاه درباره بازی ۲</p>
-    <a href="#">شروع بازی</a>
+      <div class="game-card" data-title="بازی ۳" data-desc="توضیح کوتاه درباره بازی ۳">
+        <img src="game3.jpg" alt="بازی ۳">
+        <h2>بازی ۳</h2>
+        <p>توضیح کوتاه درباره بازی ۳</p>
+        <a href="#">شروع بازی</a>
+      </div>
+    </main>
   </div>
-
-  <div class="game-card" data-title="بازی ۳" data-desc="توضیح کوتاه درباره بازی ۳">
-    <img src="game3.jpg" alt="بازی ۳">
-    <h2>بازی ۳</h2>
-    <p>توضیح کوتاه درباره بازی ۳</p>
-    <a href="#">شروع بازی</a>
-  </div>
-</main>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
