@@ -60,6 +60,24 @@ nav a:hover{
   box-shadow: 0 0 10px #f59e0b;
 }
 
+/* ===== Dropdown Fix for RTL ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  right: 0;        /* مهم: در RTL از راست باز شود */
+  left: auto;
+  min-width: 160px;
+  text-align: right;
+  background-color: rgba(0,0,0,0.85);
+  border-radius: 8px;
+  z-index: 999;
+}
+
+
 /* وقتی سرچ باز است، منو محو شود */
 body.searching nav{
   opacity: 0;
@@ -461,4 +479,5 @@ nav {
   left: auto;
   text-align: right;
 }
+
 
