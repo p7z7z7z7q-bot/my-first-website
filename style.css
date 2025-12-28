@@ -34,37 +34,6 @@ h1 {
 }
 
 /* =========================
-   Intro Box (اگر جای دیگه استفاده شد)
-========================= */
-.intro-box {
-  background-color: rgba(128,0,128,0.5);
-  display: inline-block;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-/* =========================
-   Buttons
-========================= */
-.start-btn {
-  display: inline-block;
-  margin: 15px 0;
-  padding: 10px 20px;
-  background-color: #facc15;
-  color: #000;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.start-btn:hover {
-  background-color: #f59e0b;
-  color: #fff;
-}
-
-/* =========================
    Nav menu
 ========================= */
 nav {
@@ -95,6 +64,35 @@ nav a:hover {
   box-shadow: 0 0 10px #f59e0b;
 }
 
+/* وقتی سرچ باز است، منو محو شود */
+body.searching nav{
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: 0.2s ease;
+}
+
+/* =========================
+   HERO BOX
+========================= */
+.hero-box {
+  background: linear-gradient(135deg, #2b003d, #12001a);
+  padding: 20px 20px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(155, 0, 255, 0.4);
+
+  display: inline-block;
+  width: min(900px, 100%);
+  margin: 0 auto 30px;
+}
+
+.hero-box p {
+  color: #eee;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
 /* =========================
    Game cards
 ========================= */
@@ -122,30 +120,31 @@ nav a:hover {
   margin-bottom: 10px;
 }
 
-.game-card a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 5px 10px;
-  background-color: #facc15;
-  color: #000;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.game-card a:hover {
-  background-color: #f59e0b;
-  color: #fff;
-}
-
 .game-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 0 20px #f59e0b;
 }
 
+/* ✅ فقط برای کارت‌های ژانر در صفحه هوم */
+.genre-card .genre-link{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.genre-card .genre-link h2,
+.genre-card .genre-link p{
+  margin: 0;
+}
+
+.genre-card .genre-link p{
+  margin-top: 8px;
+  opacity: 0.9;
+  font-size: 12px;
+}
+
 /* =========================
-   Dropdown Menu (Final)
+   Dropdown Menu
 ========================= */
 .dropdown { position: relative; }
 
@@ -194,55 +193,10 @@ nav a:hover {
 }
 
 /* =========================
-   Social Buttons (About)
-========================= */
-.social-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 15px;
-  background-color: #facc15;
-  color: #000;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.social-btn i { font-size: 16px; }
-
-.social-btn:hover {
-  background-color: #a855f7;
-  color: #fff;
-  transform: scale(1.1);
-  box-shadow: 0 0 10px #a855f7;
-}
-
-/* =========================
-   HERO BOX
-========================= */
-.hero-box {
-  background: linear-gradient(135deg, #2b003d, #12001a);
-  padding: 20px 20px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(155, 0, 255, 0.4);
-
-  display: inline-block;
-  width: min(900px, 100%);
-  margin: 0 auto 30px;
-}
-
-.hero-box p {
-  color: #eee;
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-
-/* =========================
-   Search (Animated / Gaming Theme)
+   Search (Animated)
 ========================= */
 .search-wrapper{
+  position: relative; /* مهم: نتایج به سرچ بچسبد */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -250,7 +204,6 @@ nav a:hover {
 
   padding: 0;
   border-radius: 16px;
-
   background: transparent;
   border: none;
   box-shadow: none;
@@ -363,33 +316,9 @@ nav a:hover {
   transform: rotate(-10deg) scale(1.08);
 }
 
-@media (prefers-reduced-motion: reduce){
-  .search-wrapper, .search-input, .search-btn, .search-btn::after, .search-btn i{
-    transition: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  nav { flex-wrap: wrap; gap: 15px; }
-  .dropdown-content { right: auto; left: 0; min-width: 140px; }
-}
-
-/*نتیجه‌ای نبود*/
-.no-results{
-  width: 100%;
-  margin-top: 15px;
-  color: #facc15;
-  text-shadow: 0 0 12px rgba(250, 204, 21, 0.25);
-  font-size: 12px;
-}
-
 /* =========================
-   Search Results Dropdown (Final)
+   Search Results Dropdown
 ========================= */
-.search-wrapper{
-  position: relative; /* مهم: نتایج به سرچ بچسبد */
-}
-
 .search-results{
   position: absolute;
   top: calc(100% + 10px);
@@ -414,7 +343,6 @@ nav a:hover {
   overflow: auto;
 }
 
-/* آیتم‌ها */
 .search-results a{
   display: flex;
   justify-content: space-between;
@@ -437,14 +365,12 @@ nav a:hover {
   transform: translateX(-2px);
 }
 
-/* توضیح کوچیک یا ژانر */
 .search-results .meta{
   opacity: 0.75;
   font-size: 11px;
   color: #cbd5e1;
 }
 
-/* متن وقتی چیزی نبود */
 .search-results .hint{
   padding: 10px 12px;
   color: #facc15;
@@ -452,10 +378,13 @@ nav a:hover {
   opacity: 0.9;
 }
 
-/* وقتی سرچ نتیجه دارد/باز است، منو محو شود */
-body.searching nav{
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(6px);
-  transition: 0.2s ease;
+@media (prefers-reduced-motion: reduce){
+  .search-wrapper, .search-input, .search-btn, .search-btn::after, .search-btn i{
+    transition: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  nav { flex-wrap: wrap; gap: 15px; }
+  .dropdown-content { right: auto; left: 0; min-width: 140px; }
 }
