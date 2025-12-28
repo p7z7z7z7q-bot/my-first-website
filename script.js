@@ -338,4 +338,6 @@ window.addEventListener("load", () => {
   highlightAndScrollToCard(card);
 });
 
+console.log("TOP MATCH:", filtered[0]);
+
 
