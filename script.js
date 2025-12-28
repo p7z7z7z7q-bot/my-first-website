@@ -254,12 +254,12 @@ document.addEventListener("click", (e) => {
         document.body.classList.remove("loaded");
         document.body.classList.add("is-loading");
         setTimeout(() => {
-          window.location.href = target;
-        }, 400);
-      } else {
-        searchGames(searchInput.value);
-      }
-    }
+          window.location.href = resolveUrl(first.url);
+       }, 400);
+     } else {
+       searchGames(searchInput.value);
+     }
+  }
 
     if (e.key === "Escape") {
       e.preventDefault();
@@ -337,4 +337,5 @@ window.addEventListener("load", () => {
   const card = findBestCardMatch(q);
   highlightAndScrollToCard(card);
 });
+
 
