@@ -1,60 +1,68 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بازی های انلاین - سایت گیمینگ من</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../style.css">
-    <script src="../../../script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بازی های آنلاین - سایت گیمینگ من</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../style.css">
+
+  <!-- مهم: defer تا بعد از ساخته شدن DOM اجرا شود -->
+  <script src="../../../script.js" defer></script>
 </head>
+
 <body>
-    <div class="container">
-        <h1>🎮 بازی های انلاین 🎮</h1>
+  <div class="container">
+    <h1>🎮 بازی های آنلاین 🎮</h1>
 
-        <nav>
-            <a href="../../../index.html">خانه</a>
-            <a href="../../../about.html">درباره من</a>
-            <div class="dropdown">
-                <a href="#" class="dropbtn">بازی‌ها ▾</a>
-                <div class="dropdown-content">
-                    <a href="../../action/html/action.html">اکشن</a>
-                    <a href="../../action/html/action.html">ماجرایی</a>
-                    <a href="../../online/html/online.html">آنلاین</a>
-                </div>
-            </div>
-        </nav>
+    <nav>
+      <a href="../../../index.html">خانه</a>
+      <a href="../../../about.html">درباره من</a>
 
-        <main class="games">
-            <div class="game-card">
-                <img src="../pic/Online1.jpg" alt="Fortnite">
-                <h2>Fortnite</h2>
-                <p>توضیح کوتاه درباره بازی ماجرایی ۱</p>
-                <a href="#">جزئیات</a>
-            </div>
-            <div class="game-card">
-                <img src="../pic/Online2.jpg" alt="Dota 2">
-                <h2>Dota 2</h2>
-                <p>توضیح کوتاه درباره بازی ماجرایی ۲</p>
-                <a href="#">جزئیات</a>
-            </div>
-            <div class="game-card">
-                <img src="../pic/Online3.jpg" alt="League of Legends">
-                <h2>League of Legends</h2>
-                <p>توضیح کوتاه درباره بازی ماجرایی ۳</p>
-                <a href="#">جزئیات</a>
-            </div>
-            <div class="game-card">
-                <img src="../pic/Online4.jpg" alt="PUBG">
-                <h2>PUBG</h2>
-                <p>توضیح کوتاه درباره بازی ماجرایی ۴</p>
-                <a href="#">جزئیات</a>
-            </div>
-        </main>
-
-        <div style="margin-top:20px;">
-            <a class="start-btn" href="../../../index.html">بازگشت به خانه</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">بازی‌ها ▾</a>
+        <div class="dropdown-content">
+          <a href="../../action/html/action.html">اکشن</a>
+          <a href="../../adventure/html/adventure.html">ماجرایی</a>
+          <a href="online.html">آنلاین</a>
         </div>
+      </div>
+    </nav>
+
+    <main class="games">
+      <div class="game-card" id="fortnite" data-title="Fortnite" data-desc="بازی آنلاین">
+        <img src="../pic/Online1.jpg" alt="Fortnite">
+        <h2>Fortnite</h2>
+        <p>بازی آنلاین</p>
+        <a href="#">جزئیات</a>
+      </div>
+
+      <div class="game-card" id="dota-2" data-title="Dota 2" data-desc="بازی آنلاین">
+        <img src="../pic/Online2.jpg" alt="Dota 2">
+        <h2>Dota 2</h2>
+        <p>بازی آنلاین</p>
+        <a href="#">جزئیات</a>
+      </div>
+
+      <div class="game-card" id="league-of-legends" data-title="League of Legends" data-desc="بازی آنلاین">
+        <img src="../pic/Online3.jpg" alt="League of Legends">
+        <h2>League of Legends</h2>
+        <p>بازی آنلاین</p>
+        <a href="#">جزئیات</a>
+      </div>
+
+      <div class="game-card" id="pubg" data-title="PUBG" data-desc="بازی آنلاین">
+        <img src="../pic/Online4.jpg" alt="PUBG">
+        <h2>PUBG</h2>
+        <p>بازی آنلاین</p>
+        <a href="#">جزئیات</a>
+      </div>
+    </main>
+
+    <div class="back-home">
+      <a class="start-btn" href="../../../index.html">بازگشت به خانه</a>
     </div>
+  </div>
 </body>
 </html>
