@@ -529,3 +529,77 @@ body.searching nav{
   nav{ flex-wrap: wrap; gap: 15px; }
   .dropdown-content{ right: auto; left: 0; min-width: 140px; }
 }
+
+/* =========================
+   ABOUT PAGE FIX (با HTML فعلی تو)
+========================= */
+
+/* بک‌گراند بنفش کم‌رنگ پشت متن‌های معرفی */
+.intro-box{
+  background: rgba(128, 0, 255, 0.18);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 18px;
+  padding: 18px 16px;
+  box-shadow: 0 0 24px rgba(168, 85, 247, 0.22);
+  backdrop-filter: blur(6px);
+
+  width: min(900px, 100%);
+  margin: 0 auto 18px;
+}
+
+/* دکمه بازگشت به خانه پایین صفحه (نه وسط intro-box) */
+.container{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-pic{
+  margin-top: 20px;
+}
+
+/* social-box را به پایین هل می‌دهیم و دکمه را آخر می‌بریم */
+.social-box{
+  margin-top: auto !important;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(128, 0, 255, 0.14);
+  border: 1px solid rgba(168, 85, 247, 0.22);
+
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.18);
+  backdrop-filter: blur(6px);
+}
+
+/* استایل دکمه‌های شبکه اجتماعی */
+.social-btn{
+  color: #facc15;
+  text-decoration: none;
+
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.35);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.social-btn:hover{
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.22);
+  filter: brightness(1.12);
+}
+
+.social-btn:active{
+  transform: scale(0.96);
+}
+
+/* دکمه بازگشت به خانه داخل intro-box را به شکل دکمه نگه می‌داریم،
+   ولی جای آن را طوری تنظیم می‌کنیم که حس "وسط" ندهد */
+.intro-box .start-btn{
+  display: inline-block;
+  margin-top: 14px;
+}
+
