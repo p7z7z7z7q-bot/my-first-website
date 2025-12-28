@@ -452,5 +452,13 @@ nav a:hover {
   opacity: 0.9;
 }
 
+/* وقتی سرچ نتیجه دارد/باز است، منو محو شود */
+body.searching nav{
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: 0.2s ease;
+}
+
 
 
