@@ -59,7 +59,9 @@ nav a:hover{
   transform: scale(1.1);
   box-shadow: 0 0 10px #f59e0b;
 }
-
+{
+  direction: rtl;   /* <<< کلید حل مشکل */
+}
 /* ===== Dropdown Fix for RTL ===== */
 .dropdown-content {
   opacity: 0;
@@ -475,6 +477,7 @@ nav {
   left: auto;
   text-align: right;
 }
+
 
 
 
