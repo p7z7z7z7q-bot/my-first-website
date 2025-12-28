@@ -103,13 +103,16 @@ const norm = (s) =>
 // ✅ UPDATED: fetch games index from SITE_BASE (not current page path)
 async function loadGamesIndex() {
   try {
-    const gamesUrl = new URL("games.json", SITE_BASE).href;
+    // ✅ JSON داخل پوشه data
+    const gamesUrl = new URL("data/games.json", SITE_BASE).href;
+
     const res = await fetch(gamesUrl, { cache: "no-store" });
-    if (!res.ok) throw new Error("games.json not found");
+    if (!res.ok) throw new Error("data/games.json not found");
+
     const data = await res.json();
     if (Array.isArray(data)) return data;
   } catch (e) {
-    // fallback: only current page cards (if games.json missing)
+    // fallback: only current page cards (if JSON missing)
     const cards = Array.from(document.querySelectorAll(".game-card"));
     return cards.map((c) => ({
       title: c.dataset.title || c.querySelector("h2")?.textContent || "",
@@ -183,3 +186,4 @@ function renderResults(items, q) {
 function searchGames(q) {
   const query = norm(q);
   if (!query) {
+
