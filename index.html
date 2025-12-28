@@ -44,26 +44,35 @@
 
     <!-- GAME CARDS: تبدیل کارت‌ها به لینک‌های بازی‌ها -->
     <main class="games">
-      <div class="game-card">
-        <h2>بازی‌های اکشن</h2>
-        <p>از بهترین بازی‌های اکشن دیدن کنید</p>
-        <a href="genre/action/html/action.html" class="start-btn">شروع بازی‌ها</a>
-      </div>
-
-      <div class="game-card">
-        <h2>بازی‌های ماجرایی</h2>
-        <p>به دنیای ماجراجویی خوش آمدید</p>
-        <a href="genre/adventure/html/adventure.html" class="start-btn">شروع بازی‌ها</a>
-      </div>
-
-      <div class="game-card">
-        <h2>بازی‌های آنلاین</h2>
-        <p>با دوستان خود بازی کنید</p>
-        <a href="genre/online/html/online.html" class="start-btn">شروع بازی‌ها</a>
-      </div>
-    </main>
+  <div class="game-card" data-title="اکشن" data-desc="بازی‌های اکشن">
+    <a href="genre/action/html/action.html">
+      <!-- تصویر ژانر اکشن -->
+      <img src="images/action.jpg" alt="بازی‌های اکشن">
+      <h2>اکشن</h2>
+      <p>بازی‌های اکشن</p>
+    </a>
   </div>
+
+      <div class="game-card" data-title="ماجرایی" data-desc="بازی‌های ماجرایی">
+    <a href="genre/adventure/html/adventure.html">
+      <!-- تصویر ژانر ماجرایی -->
+      <img src="images/adventure.jpg" alt="بازی‌های ماجرایی">
+      <h2>ماجرایی</h2>
+      <p>بازی‌های ماجرایی</p>
+    </a>
+  </div>
+
+      <div class="game-card" data-title="آنلاین" data-desc="بازی‌های آنلاین">
+    <a href="genre/online/html/online.html">
+      <!-- تصویر ژانر آنلاین -->
+      <img src="images/online.jpg" alt="بازی‌های آنلاین">
+      <h2>آنلاین</h2>
+      <p>بازی‌های آنلاین</p>
+    </a>
+  </div>
+</main>
 
   <script src="script.js"></script>
 </body>
 </html>
+
