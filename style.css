@@ -388,3 +388,20 @@ body.searching nav{
   nav { flex-wrap: wrap; gap: 15px; }
   .dropdown-content { right: auto; left: 0; min-width: 140px; }
 }
+
+/*new*/
+.game-card.match-highlight{
+  box-shadow: 0 0 28px rgba(250,204,21,0.35), 0 0 30px rgba(168,85,247,0.30);
+  transform: translateY(-6px);
+  outline: 2px solid rgba(250,204,21,0.55);
+  animation: pulseGlow 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow{
+  from{
+    filter: saturate(1);
+  }
+  to{
+    filter: saturate(1.25);
+  }
+}
