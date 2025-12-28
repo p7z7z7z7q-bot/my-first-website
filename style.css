@@ -444,3 +444,21 @@ body.searching nav{
   box-shadow: 0 4px 12px rgba(138, 43, 226, 0.5);
 }
 
+/* ===== Fix Games Dropdown Position (RTL Safe) ===== */
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  right: 0;
+  left: auto;
+  text-align: right;
+}
+
