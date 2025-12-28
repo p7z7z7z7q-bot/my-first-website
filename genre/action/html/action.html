@@ -1,72 +1,77 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بازی‌های اکشن - سایت گیمینگ من</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بازی‌های اکشن - سایت گیمینگ من</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../style.css">
-  <script src="../../../script.js"></script>
+
+  <!-- مهم: defer تا بعد از ساخته شدن DOM اجرا شود -->
+  <script src="../../../script.js" defer></script>
 </head>
+
 <body>
-    <div class="container">
-        <h1>🎮 بازی‌های اکشن 🎮</h1>
+  <div class="container">
+    <h1>🎮 بازی‌های اکشن 🎮</h1>
 
-        <nav>
-    <a href="../../../index.html">خانه</a>
-    <a href="../../../about.html">درباره من</a>
+    <nav>
+      <a href="../../../index.html">خانه</a>
+      <a href="../../../about.html">درباره من</a>
 
-    <div class="dropdown">
+      <div class="dropdown">
         <a href="#" class="dropbtn">بازی‌ها ▾</a>
         <div class="dropdown-content">
-            <a href="action.html">اکشن</a>
-            <a href="../../adventure/html/adventure.html">ماجرایی</a>
-            <a href="../../online/html/online.html">آنلاین</a>
+          <a href="action.html">اکشن</a>
+          <a href="../../adventure/html/adventure.html">ماجرایی</a>
+          <a href="../../online/html/online.html">آنلاین</a>
         </div>
+      </div>
+    </nav>
+
+    <main class="games">
+      <!-- Wolverine -->
+      <div class="game-card" id="wolverine" data-title="Wolverine" data-desc="بازی اکشن">
+        <img src="..." alt="Wolverine">
+        <h2>Wolverine</h2>
+        <p>بازی اکشن</p>
+        <a href="#">شروع بازی</a>
+        <a href="#">جزئیات</a>
+      </div>
+
+      <!-- Call of Duty -->
+      <div class="game-card" id="call-of-duty" data-title="Call of Duty" data-desc="بازی اکشن">
+        <img src="..." alt="Call of Duty">
+        <h2>Call of Duty</h2>
+        <p>بازی اکشن</p>
+        <a href="#">شروع بازی</a>
+        <a href="#">جزئیات</a>
+      </div>
+
+      <!-- Warframe -->
+      <div class="game-card" id="warframe" data-title="Warframe" data-desc="بازی اکشن">
+        <img src="..." alt="Warframe">
+        <h2>Warframe</h2>
+        <p>بازی اکشن</p>
+        <a href="#">شروع بازی</a>
+        <a href="#">جزئیات</a>
+      </div>
+
+      <!-- Deadpool -->
+      <div class="game-card" id="deadpool" data-title="Deadpool" data-desc="بازی اکشن">
+        <img src="..." alt="Deadpool">
+        <h2>Deadpool</h2>
+        <p>بازی اکشن</p>
+        <a href="#">شروع بازی</a>
+        <a href="#">جزئیات</a>
+      </div>
+    </main>
+
+    <div class="back-home">
+      <a class="start-btn" href="../../../index.html">بازگشت به خانه</a>
     </div>
-</nav>
 
-        <main class="games">
-                  <!-- Wolverine -->
-           <div class="game-card" id="Wolverine" data-title="Wolverine" data-desc="بازی اکشن">
-                  <img src="..." alt="Wolverine">
-                  <h2>Wolverine</h2>
-                  <p>بازی اکشن</p>
-                  <a href="#">شروع بازی</a>
-                  <a href="#">جزئیات</a>
-           </div>
-
-
-                  <!-- Call of Duty -->
-            <div class="game-card" id="Call of Duty" data-title="Call of Duty" data-desc="بازی اکشن">
-                  <img src="..." alt="Call of Duty">
-                  <h2>Call of Duty</h2>
-                  <p>بازی اکشن</p>
-                  <a href="#">شروع بازی</a>
-                  <a href="#">جزئیات</a>
-           </div>
-            
-                  <!-- Warframe -->
-           <div class="game-card" id="warframe" data-title="Warframe" data-desc="بازی اکشن">
-                <img src="..." alt="Warframe">
-                <h2>Warframe</h2>
-                <p>بازی اکشن</p>
-                <a href="#">شروع بازی</a>
-          </div>
-            
-                 <!-- Deadpool -->
-         <div class="game-card" id="Deadpool" data-title="Deadpool" data-desc="بازی اکشن">
-                  <img src="..." alt="Deadpool">
-                  <h2>Deadpool</h2>
-                  <p>بازی اکشن</p>
-                  <a href="#">شروع بازی</a>
-                  <a href="#">جزئیات</a>
-           </div>
-
-        <!-- دکمه برگشت بدون margin اضافی داخل HTML -->
-        <div class="back-home" style="margin-top:20px;">
-            <a class="start-btn" href="../../../index.html">بازگشت به خانه</a>
-        </div>
-    </div>
+  </div>
 </body>
 </html>
