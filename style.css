@@ -151,37 +151,59 @@ body.searching nav{
 }
 
 /* =========================
-   Game cards
+   GAME CARDS
 ========================= */
-.games{
+.games {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.game-card{
-  background-color: rgba(128,0,128,0.5);
+.game-card {
+  background-color: rgba(128, 0, 128, 0.5);
   color: #e5e7eb;
   padding: 15px;
   border-radius: 10px;
   width: 200px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
-
   scroll-margin-top: 90px; /* ✅ برای page.html#id */
 }
 
-.game-card img{
+.game-card img {
   width: 100%;
   height: auto;
   border-radius: 10px;
   margin-bottom: 10px;
+  object-fit: cover; /* جلوگیری از برآمدگی تصویر */
 }
 
-.game-card:hover{
+.game-card h2 {
+  text-align: center; /* برای وسط‌چین کردن عنوان بازی */
+}
+
+.game-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 0 20px #f59e0b;
+}
+
+/* کارت‌های ژانر: کل کارت کلیک‌پذیر */
+.genre-card .genre-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.genre-card .genre-link h2,
+.genre-card .genre-link p {
+  margin: 0;
+}
+
+.genre-card .genre-link p {
+  margin-top: 8px;
+  opacity: 0.9;
+  font-size: 12px;
 }
 
 /* کارت‌های ژانر: کل کارت کلیک‌پذیر */
@@ -602,4 +624,5 @@ body.searching nav{
   display: inline-block;
   margin-top: 14px;
 }
+
 
