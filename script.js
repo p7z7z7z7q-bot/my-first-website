@@ -361,3 +361,47 @@ window.addEventListener("load", () => {
   const card = findBestCardMatch(q);
   highlightAndScrollToCard(card);
 });
+
+/*URL*/
+document.addEventListener("DOMContentLoaded", function() {
+  const params = new URLSearchParams(window.location.search);
+  const game = params.get("game"); // دریافت نام بازی از URL
+
+  if (game) {
+    // اطلاعات مربوط به بازی‌ها (این اطلاعات می‌تواند از دیتابیس یا یک آرایه باشد)
+    const gameDetails = {
+      wolverine: {
+        title: "Wolverine",
+        desc: "یک بازی اکشن عالی با شخصیت Wolverine",
+        img: "images/wolverine.jpg"
+      },
+      "call-of-duty": {
+        title: "Call of Duty",
+        desc: "بازی اکشن پرهیجان",
+        img: "images/call-of-duty.jpg"
+      },
+      "warframe": {
+        title: "Warframe",
+        desc: "بازی اکشن و آنلاین",
+        img: "images/warframe.jpg"
+      },
+      "fortnite": {
+        title: "Fortnite",
+        desc: "بازی آنلاین بسیار محبوب",
+        img: "images/fortnite.jpg"
+      },
+      // ادامه برای سایر بازی‌ها
+    };
+
+    const gameInfo = gameDetails[game];
+
+    if (gameInfo) {
+      document.getElementById("game-title").textContent = gameInfo.title;
+      document.getElementById("game-desc").textContent = gameInfo.desc;
+      document.getElementById("game-img").src = gameInfo.img;
+    } else {
+      document.getElementById("game-title").textContent = "بازی یافت نشد";
+      document.getElementById("game-desc").textContent = "متاسفانه اطلاعاتی برای این بازی یافت نشد.";
+    }
+  }
+});
