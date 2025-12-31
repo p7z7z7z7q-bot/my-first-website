@@ -1,23 +1,143 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>جزئیات بازی</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
+<body class="details-page">
   <div class="container">
-    <h1 id="game-title">نام بازی</h1>
-    <p id="game-desc">توضیحات بازی</p>
-    <img id="game-img" src="" alt="تصویر بازی" style="width:100%; max-width: 500px; border-radius: 10px; margin: 20px auto; display:block;" />
+    <h1 id="game-title">جزئیات بازی</h1>
 
-    <!-- دکمه بازگشت به خانه -->
-    <a class="start-btn" href="index.html">بازگشت به خانه</a>
+    <div class="hero-box" style="margin-top:10px;">
+      <p id="game-genre" style="margin:0 0 10px;"></p>
+      <p id="game-desc" style="margin:0;"></p>
+    </div>
+
+    <img id="game-img"
+         src=""
+         alt=""
+         style="width:min(700px, 100%); height:320px; object-fit:cover; border-radius:18px; display:block; margin: 0 auto 18px;">
+
+    <div style="margin-top:20px;">
+      <a class="start-btn" id="back-link" href="index.html">بازگشت</a>
+    </div>
   </div>
 
   <script src="script.js"></script>
+
+  <script>
+    // دیتای اولیه جزئیات (فعلاً ساده؛ بعداً می‌تونیم از games.json/فایل جدا تغذیه کنیم)
+    const GAME_DB = {
+      "wolverine": {
+        title: "Wolverine",
+        genreFa: "اکشن",
+        desc: "یک بازی اکشن با محوریت Wolverine.",
+        img: "genre/action/pic/action1.jpg"
+      },
+      "call-of-duty": {
+        title: "Call of Duty",
+        genreFa: "اکشن",
+        desc: "یک بازی اکشن و شوتر پرهیجان.",
+        img: "genre/action/pic/action2.jpg"
+      },
+      "warframe": {
+        title: "Warframe",
+        genreFa: "اکشن",
+        desc: "اکشن سریع و آنلاین با مبارزات جذاب.",
+        img: "genre/action/pic/action3.jpg"
+      },
+      "deadpool": {
+        title: "Deadpool",
+        genreFa: "اکشن",
+        desc: "اکشن با فضای طنز و شخصیت Deadpool.",
+        img: "genre/action/pic/action4.jpg"
+      },
+
+      "tomb-raider": {
+        title: "Tomb Raider",
+        genreFa: "ماجرایی",
+        desc: "ماجرایی و اکتشافی با Lara Croft.",
+        img: "genre/adventure/pic/adventure1.jpg"
+      },
+      "uncharted": {
+        title: "Uncharted",
+        genreFa: "ماجرایی",
+        desc: "ماجرایی سینمایی و هیجان‌انگیز.",
+        img: "genre/adventure/pic/adventure2.jpg"
+      },
+      "god-of-war": {
+        title: "God of War",
+        genreFa: "ماجرایی",
+        desc: "ماجرایی/اکشن با داستان قوی.",
+        img: "genre/adventure/pic/adventure3.jpg"
+      },
+      "assassins-creed": {
+        title: "Assassin's Creed",
+        genreFa: "ماجرایی",
+        desc: "ماجرایی تاریخی با مخفی‌کاری.",
+        img: "genre/adventure/pic/adventure4.jpg"
+      },
+
+      "fortnite": {
+        title: "Fortnite",
+        genreFa: "آنلاین",
+        desc: "آنلاین رقابتی و محبوب.",
+        img: "genre/online/pic/Online1.jpg"
+      },
+      "dota-2": {
+        title: "Dota 2",
+        genreFa: "آنلاین",
+        desc: "MOBA آنلاین با رقابت شدید.",
+        img: "genre/online/pic/Online2.jpg"
+      },
+      "league-of-legends": {
+        title: "League of Legends",
+        genreFa: "آنلاین",
+        desc: "MOBA آنلاین بسیار معروف.",
+        img: "genre/online/pic/Online3.jpg"
+      },
+      "pubg": {
+        title: "PUBG",
+        genreFa: "آنلاین",
+        desc: "بتل رویال آنلاین.",
+        img: "genre/online/pic/Online4.jpg"
+      }
+    };
+
+    const params = new URLSearchParams(location.search);
+    const gameKey = (params.get("game") || "").trim();
+    const back = (params.get("back") || "").trim();
+
+    const titleEl = document.getElementById("game-title");
+    const genreEl = document.getElementById("game-genre");
+    const descEl  = document.getElementById("game-desc");
+    const imgEl   = document.getElementById("game-img");
+    const backEl  = document.getElementById("back-link");
+
+    // لینک بازگشت
+    backEl.href = back ? back : "index.html";
+    backEl.textContent = back ? "بازگشت به صفحه قبلی" : "بازگشت به خانه";
+
+    // اطلاعات بازی
+    const info = GAME_DB[gameKey];
+
+    if (!info) {
+      titleEl.textContent = "بازی پیدا نشد";
+      genreEl.textContent = "";
+      descEl.textContent = "اطلاعاتی برای این بازی ثبت نشده یا لینک اشتباه است.";
+      imgEl.style.display = "none";
+    } else {
+      titleEl.textContent = info.title;
+      genreEl.textContent = "ژانر: " + (info.genreFa || "-");
+      descEl.textContent  = info.desc || "";
+      imgEl.src = info.img;
+      imgEl.alt = info.title;
+    }
+  </script>
 </body>
 </html>
