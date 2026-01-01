@@ -32,72 +32,79 @@
 
   <script src="script.js"></script>
 
-  <script>
-    // مشابه slugify خودت، اما همینجا سبک و کافی
-    const norm = (s) => (s || "").toString().trim().toLowerCase().replace(/\s+/g, " ");
-    const slugify = (s) => {
-      return norm(s)
-        .replace(/['"]/g, "")
-        .replace(/[^\p{L}\p{N}\s-]/gu, "")
-        .replace(/\s+/g, "-")
-        .replace(/-+/g, "-")
-        .replace(/^-|-$/g, "");
+ <script>
+(async function () {
+  const params = new URLSearchParams(location.search);
+  const gameId = (params.get("game") || "").trim();
+  const back = (params.get("back") || "").trim();
+
+  const titleEl = document.getElementById("game-title");
+  const genreEl = document.getElementById("game-genre");
+  const descEl  = document.getElementById("game-desc");
+  const imgEl   = document.getElementById("game-img");
+  const backEl  = document.getElementById("back-link");
+
+  // بک
+  if (back) {
+    backEl.href = new URL(back, document.baseURI).href;
+    backEl.textContent = "بازگشت به صفحه قبلی";
+  } else {
+    backEl.href = "index.html";
+    backEl.textContent = "بازگشت به خانه";
+  }
+
+  if (!gameId) {
+    titleEl.textContent = "بازی پیدا نشد";
+    genreEl.textContent = "";
+    descEl.textContent  = "پارامتر game در URL وجود ندارد.";
+    imgEl.style.display = "none";
+    return;
+  }
+
+  // لود JSON
+  const detailsUrl = new URL("data/games-details.json", document.baseURI).href;
+  let list = [];
+  try {
+    const res = await fetch(detailsUrl, { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    list = await res.json();
+  } catch (e) {
+    titleEl.textContent = "خطا در بارگذاری دیتابیس";
+    genreEl.textContent = "";
+    descEl.textContent  = "فایل games-details.json لود نشد. مسیر را چک کن: " + detailsUrl;
+    imgEl.style.display = "none";
+    return;
+  }
+
+  const item = Array.isArray(list) ? list.find(x => (x.id || "").trim() === gameId) : null;
+
+  if (!item) {
+    titleEl.textContent = "بازی پیدا نشد";
+    genreEl.textContent = "";
+    descEl.textContent  = "این id در دیتابیس وجود ندارد: " + gameId;
+    imgEl.style.display = "none";
+    return;
+  }
+
+  // نمایش اطلاعات
+  titleEl.textContent = item.title || gameId;
+  genreEl.textContent = "ژانر: " + (item.genre || "-");
+  descEl.textContent  = item.desc || "";
+
+  // عکس (resolve درست)
+  if (item.image) {
+    imgEl.style.display = "block";
+    imgEl.src = new URL(item.image, document.baseURI).href;
+    imgEl.alt = item.title || gameId;
+
+    imgEl.onerror = () => {
+      imgEl.style.display = "none";
+      // اگر خواستی می‌تونی یک متن خطا هم زیرش بزاری
     };
-
-    async function loadDetails() {
-      const params = new URLSearchParams(location.search);
-
-      // game ممکن است id باشد یا title؛ هر دو را هندل می‌کنیم
-      const rawGame = (params.get("game") || "").trim();
-      const gameKey = slugify(rawGame);
-
-      const back = (params.get("back") || "").trim();
-
-      const titleEl = document.getElementById("game-title");
-      const genreEl = document.getElementById("game-genre");
-      const descEl  = document.getElementById("game-desc");
-      const imgEl   = document.getElementById("game-img");
-      const backEl  = document.getElementById("back-link");
-
-      // لینک بازگشت
-      backEl.href = back ? back : "index.html";
-      backEl.textContent = back ? "بازگشت به صفحه قبلی" : "بازگشت به خانه";
-
-      // دیتای جزئیات
-      const res = await fetch("data/games-details.json", { cache: "no-store" });
-      if (!res.ok) throw new Error("Cannot load data/games-details.json");
-
-      const list = await res.json();
-
-      // پیدا کردن بازی: اول با id، بعد اگر کسی title فرستاده بود با slug(title)
-      const item =
-        list.find(x => norm(x.id) === norm(gameKey)) ||
-        list.find(x => slugify(x.title) === gameKey) ||
-        null;
-
-      if (!item) {
-        titleEl.textContent = "بازی پیدا نشد";
-        genreEl.textContent = "";
-        descEl.textContent = "اطلاعاتی برای این بازی ثبت نشده یا لینک اشتباه است.";
-        imgEl.style.display = "none";
-        return;
-      }
-
-      titleEl.textContent = item.title || "جزئیات بازی";
-      genreEl.textContent = "ژانر: " + (item.genreFa || item.genre || "-");
-      descEl.textContent  = item.desc || "";
-
-      imgEl.src = item.image || "";
-      imgEl.alt = item.title || "game";
-      imgEl.style.display = item.image ? "block" : "none";
-    }
-
-    loadDetails().catch((e) => {
-      console.warn(e);
-      document.getElementById("game-title").textContent = "خطا";
-      document.getElementById("game-desc").textContent = "فایل جزئیات لود نشد یا مسیر اشتباه است.";
-      document.getElementById("game-img").style.display = "none";
-    });
-  </script>
+  } else {
+    imgEl.style.display = "none";
+  }
+})();
+</script>
 </body>
 </html>
