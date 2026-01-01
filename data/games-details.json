@@ -3,28 +3,32 @@
     "id": "wolverine",
     "title": "Wolverine",
     "genre": "action",
-    "desc": "بازی اکشن",
+    "genreFa": "اکشن",
+    "desc": "یک بازی اکشن با محوریت Wolverine.",
     "image": "genre/action/pic/action1.jpg"
   },
   {
     "id": "call-of-duty",
     "title": "Call of Duty",
     "genre": "action",
-    "desc": "بازی اکشن",
+    "genreFa": "اکشن",
+    "desc": "یک بازی اکشن و شوتر پرهیجان.",
     "image": "genre/action/pic/action2.jpg"
   },
   {
     "id": "warframe",
     "title": "Warframe",
     "genre": "action",
-    "desc": "بازی اکشن",
+    "genreFa": "اکشن",
+    "desc": "اکشن سریع و آنلاین با مبارزات جذاب.",
     "image": "genre/action/pic/action3.jpg"
   },
   {
     "id": "deadpool",
     "title": "Deadpool",
     "genre": "action",
-    "desc": "بازی اکشن",
+    "genreFa": "اکشن",
+    "desc": "اکشن با فضای طنز و شخصیت Deadpool.",
     "image": "genre/action/pic/action4.jpg"
   },
 
@@ -32,28 +36,32 @@
     "id": "tomb-raider",
     "title": "Tomb Raider",
     "genre": "adventure",
-    "desc": "بازی ماجرایی",
+    "genreFa": "ماجرایی",
+    "desc": "ماجرایی و اکتشافی با Lara Croft.",
     "image": "genre/adventure/pic/adventure1.jpg"
   },
   {
     "id": "uncharted",
     "title": "Uncharted",
     "genre": "adventure",
-    "desc": "بازی ماجرایی",
+    "genreFa": "ماجرایی",
+    "desc": "ماجرایی سینمایی و هیجان‌انگیز.",
     "image": "genre/adventure/pic/adventure2.jpg"
   },
   {
     "id": "god-of-war",
     "title": "God of War",
     "genre": "adventure",
-    "desc": "بازی ماجرایی",
+    "genreFa": "ماجرایی",
+    "desc": "ماجرایی/اکشن با داستان قوی.",
     "image": "genre/adventure/pic/adventure3.jpg"
   },
   {
     "id": "assassins-creed",
     "title": "Assassin's Creed",
     "genre": "adventure",
-    "desc": "بازی ماجرایی",
+    "genreFa": "ماجرایی",
+    "desc": "ماجرایی تاریخی با مخفی‌کاری.",
     "image": "genre/adventure/pic/adventure4.jpg"
   },
 
@@ -61,28 +69,32 @@
     "id": "fortnite",
     "title": "Fortnite",
     "genre": "online",
-    "desc": "بازی آنلاین",
+    "genreFa": "آنلاین",
+    "desc": "آنلاین رقابتی و محبوب.",
     "image": "genre/online/pic/Online1.jpg"
   },
   {
     "id": "dota-2",
     "title": "Dota 2",
     "genre": "online",
-    "desc": "بازی آنلاین",
+    "genreFa": "آنلاین",
+    "desc": "MOBA آنلاین با رقابت شدید.",
     "image": "genre/online/pic/Online2.jpg"
   },
   {
     "id": "league-of-legends",
     "title": "League of Legends",
     "genre": "online",
-    "desc": "بازی آنلاین",
+    "genreFa": "آنلاین",
+    "desc": "MOBA آنلاین بسیار معروف.",
     "image": "genre/online/pic/Online3.jpg"
   },
   {
     "id": "pubg",
     "title": "PUBG",
     "genre": "online",
-    "desc": "بازی آنلاین",
+    "genreFa": "آنلاین",
+    "desc": "بتل رویال آنلاین.",
     "image": "genre/online/pic/Online4.jpg"
   }
 ]
