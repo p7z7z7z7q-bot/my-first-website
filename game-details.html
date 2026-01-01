@@ -7,6 +7,21 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- ✅ FIX: تنظیم نمایش عکس داخل کادر -->
+  <style>
+    body.details-page #game-img{
+      width: min(700px, 100%);
+      height: 320px;
+      display: block;
+      margin: 0 auto 18px;
+      border-radius: 18px;
+      object-fit: cover;
+
+      /* ✅ این خط مهمه: جای کراپ رو تنظیم می‌کنه */
+      object-position: 50% 20%;
+    }
+  </style>
 </head>
 
 <body class="details-page">
@@ -18,12 +33,7 @@
       <p id="game-desc" style="margin:0;"></p>
     </div>
 
-    <img
-      id="game-img"
-      src=""
-      alt=""
-      style="width:min(700px, 100%); height:320px; object-fit:cover; border-radius:18px; display:block; margin: 0 auto 18px;"
-    >
+    <img id="game-img" src="" alt="">
 
     <div class="page-actions">
       <a class="start-btn" id="back-link" href="index.html">بازگشت</a>
@@ -32,79 +42,78 @@
 
   <script src="script.js"></script>
 
- <script>
-(async function () {
-  const params = new URLSearchParams(location.search);
-  const gameId = (params.get("game") || "").trim();
-  const back = (params.get("back") || "").trim();
+  <script>
+    (async function () {
+      const params = new URLSearchParams(location.search);
+      const gameId = (params.get("game") || "").trim();
+      const back = (params.get("back") || "").trim();
 
-  const titleEl = document.getElementById("game-title");
-  const genreEl = document.getElementById("game-genre");
-  const descEl  = document.getElementById("game-desc");
-  const imgEl   = document.getElementById("game-img");
-  const backEl  = document.getElementById("back-link");
+      const titleEl = document.getElementById("game-title");
+      const genreEl = document.getElementById("game-genre");
+      const descEl  = document.getElementById("game-desc");
+      const imgEl   = document.getElementById("game-img");
+      const backEl  = document.getElementById("back-link");
 
-  // بک
-  if (back) {
-    backEl.href = new URL(back, document.baseURI).href;
-    backEl.textContent = "بازگشت به صفحه قبلی";
-  } else {
-    backEl.href = "index.html";
-    backEl.textContent = "بازگشت به خانه";
-  }
+      // بک
+      if (back) {
+        backEl.href = new URL(back, document.baseURI).href;
+        backEl.textContent = "بازگشت به صفحه قبلی";
+      } else {
+        backEl.href = "index.html";
+        backEl.textContent = "بازگشت به خانه";
+      }
 
-  if (!gameId) {
-    titleEl.textContent = "بازی پیدا نشد";
-    genreEl.textContent = "";
-    descEl.textContent  = "پارامتر game در URL وجود ندارد.";
-    imgEl.style.display = "none";
-    return;
-  }
+      if (!gameId) {
+        titleEl.textContent = "بازی پیدا نشد";
+        genreEl.textContent = "";
+        descEl.textContent  = "پارامتر game در URL وجود ندارد.";
+        imgEl.style.display = "none";
+        return;
+      }
 
-  // لود JSON
-  const detailsUrl = new URL("data/games-details.json", document.baseURI).href;
-  let list = [];
-  try {
-    const res = await fetch(detailsUrl, { cache: "no-store" });
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    list = await res.json();
-  } catch (e) {
-    titleEl.textContent = "خطا در بارگذاری دیتابیس";
-    genreEl.textContent = "";
-    descEl.textContent  = "فایل games-details.json لود نشد. مسیر را چک کن: " + detailsUrl;
-    imgEl.style.display = "none";
-    return;
-  }
+      // لود JSON
+      const detailsUrl = new URL("data/games-details.json", document.baseURI).href;
+      let list = [];
+      try {
+        const res = await fetch(detailsUrl, { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        list = await res.json();
+      } catch (e) {
+        titleEl.textContent = "خطا در بارگذاری دیتابیس";
+        genreEl.textContent = "";
+        descEl.textContent  = "فایل games-details.json لود نشد. مسیر را چک کن: " + detailsUrl;
+        imgEl.style.display = "none";
+        return;
+      }
 
-  const item = Array.isArray(list) ? list.find(x => (x.id || "").trim() === gameId) : null;
+      const item = Array.isArray(list) ? list.find(x => (x.id || "").trim() === gameId) : null;
 
-  if (!item) {
-    titleEl.textContent = "بازی پیدا نشد";
-    genreEl.textContent = "";
-    descEl.textContent  = "این id در دیتابیس وجود ندارد: " + gameId;
-    imgEl.style.display = "none";
-    return;
-  }
+      if (!item) {
+        titleEl.textContent = "بازی پیدا نشد";
+        genreEl.textContent = "";
+        descEl.textContent  = "این id در دیتابیس وجود ندارد: " + gameId;
+        imgEl.style.display = "none";
+        return;
+      }
 
-  // نمایش اطلاعات
-  titleEl.textContent = item.title || gameId;
-  genreEl.textContent = "ژانر: " + (item.genre || "-");
-  descEl.textContent  = item.desc || "";
+      // نمایش اطلاعات
+      titleEl.textContent = item.title || gameId;
+      genreEl.textContent = "ژانر: " + (item.genre || "-");
+      descEl.textContent  = item.desc || "";
 
-  // عکس (resolve درست)
-  if (item.image) {
-    imgEl.style.display = "block";
-    imgEl.src = new URL(item.image, document.baseURI).href;
-    imgEl.alt = item.title || gameId;
+      // عکس (resolve درست)
+      if (item.image) {
+        imgEl.style.display = "block";
+        imgEl.src = new URL(item.image, document.baseURI).href;
+        imgEl.alt = item.title || gameId;
 
-    imgEl.onerror = () => {
-      imgEl.style.display = "none";
-      // اگر خواستی می‌تونی یک متن خطا هم زیرش بزاری
-    };
-  } else {
-    imgEl.style.display = "none";
-  }
-})();
-</script>
+        imgEl.onerror = () => {
+          imgEl.style.display = "none";
+        };
+      } else {
+        imgEl.style.display = "none";
+      }
+    })();
+  </script>
 </body>
 </html>
