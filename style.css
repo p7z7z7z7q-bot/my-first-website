@@ -15,6 +15,7 @@ body{
   opacity: 1;
   transition: opacity 0.4s ease;
 }
+
 body.is-loading{ opacity: 0; }
 body.loaded{ opacity: 1; }
 
@@ -23,7 +24,7 @@ body.loaded{ opacity: 1; }
 ========================= */
 .container{
   max-width: 1000px;
-  margin: auto;
+  margin: 0 auto;
   padding: 20px;
 }
 
@@ -34,11 +35,29 @@ h1{
 }
 
 /* =========================
-   Nav menu (FINAL FIX)
+   Home & About: no extra scroll + bottom actions
+   (فعال فقط وقتی body کلاس home-page یا about-page دارد)
+========================= */
+body.home-page .container,
+body.about-page .container{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* بخش دکمه‌های پایین صفحه (بازگشت، …) */
+.page-actions{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* =========================
+   Nav menu
 ========================= */
 nav{
   display: flex;
-  justify-content: center;   /* وسط */
+  justify-content: center;
   align-items: center;
   gap: 30px;
   padding: 15px;
@@ -51,7 +70,7 @@ nav{
   z-index: 500;
 
   direction: rtl;
-  flex-direction: row-reverse; /* ✅ کلید: "بازی‌ها" درست می‌شه */
+  flex-direction: row-reverse;
 }
 
 nav > a,
@@ -93,7 +112,6 @@ nav .dropbtn:hover{
   text-align: right;
   direction: rtl;
 
-  /* نمایش با انیمیشن (بدون display:none) */
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -135,7 +153,7 @@ body.searching nav{
 ========================= */
 .hero-box{
   background: linear-gradient(135deg, #2b003d, #12001a);
-  padding: 20px 20px;
+  padding: 20px;
   border-radius: 18px;
   text-align: center;
   box-shadow: 0 0 25px rgba(155, 0, 255, 0.4);
@@ -144,6 +162,7 @@ body.searching nav{
   width: min(900px, 100%);
   margin: 0 auto 30px;
 }
+
 .hero-box p{
   color: #eee;
   margin-bottom: 15px;
@@ -173,26 +192,23 @@ body.searching nav{
   scroll-margin-top: 90px;
 }
 
-/* عکس‌ها یکدست و داخل کارت */
 .game-card img{
   width: 100%;
-  height: 110px;          /* ✅ برای یکدست شدن کارت‌ها */
+  height: 110px;
   display: block;
-  object-fit: cover;       /* ✅ بیرون نزدن/کراپ درست */
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;
 }
 
-/* عنوان‌ها وسط‌چین + جلوگیری از بیرون زدن متن‌های طولانی مثل Assassin's Creed */
 .game-card h2{
   margin: 8px 0 6px;
-  text-align: center;      /* ✅ قطعی */
+  text-align: center;
   line-height: 1.35;
-  overflow-wrap: anywhere; /* ✅ شکستن کلمه طولانی */
+  overflow-wrap: anywhere;
   word-break: break-word;
 }
 
-/* متن زیر عنوان */
 .game-card p{
   margin: 0;
 }
@@ -224,7 +240,7 @@ body.searching nav{
    Search (Animated)
 ========================= */
 .search-wrapper{
-  flex-direction: row-reverse; /* ✅ ذره‌بین درست */
+  flex-direction: row-reverse;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -423,7 +439,6 @@ body.searching nav{
 /* =========================
    Buttons
 ========================= */
-/* Details Button */
 .details-btn{
   display: inline-block;
   margin-top: 12px;
@@ -436,17 +451,18 @@ body.searching nav{
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   box-shadow: 0 4px 12px rgba(255, 0, 76, 0.4);
 }
+
 .details-btn:hover{
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 20px rgba(255, 0, 76, 0.6);
   filter: brightness(1.1);
 }
+
 .details-btn:active{
   transform: scale(0.96);
   box-shadow: 0 3px 8px rgba(255, 0, 76, 0.4);
 }
 
-/* Back to Home Button */
 .start-btn{
   display: inline-block;
   padding: 12px 24px;
@@ -458,103 +474,21 @@ body.searching nav{
   box-shadow: 0 6px 18px rgba(138, 43, 226, 0.45);
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
+
 .start-btn:hover{
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 28px rgba(138, 43, 226, 0.7);
   filter: brightness(1.15);
 }
+
 .start-btn:active{
   transform: scale(0.95);
   box-shadow: 0 4px 12px rgba(138, 43, 226, 0.5);
 }
 
 /* =========================
-   About page fixes
-   (فعال می‌شود اگر body کلاس about-page داشته باشد)
+   ABOUT page components
 ========================= */
-.about-page .container{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* بک‌گراند بنفش کم‌رنگ پشت متن‌های بالای About */
-.about-page .about-box{
-  background: rgba(128, 0, 255, 0.18);
-  border: 1px solid rgba(168, 85, 247, 0.25);
-  border-radius: 18px;
-  padding: 18px 16px;
-  box-shadow: 0 0 24px rgba(168, 85, 247, 0.22);
-  backdrop-filter: blur(6px);
-  display: inline-block;
-  width: min(900px, 100%);
-  margin: 0 auto 18px;
-}
-
-/* راه‌های ارتباطی */
-.about-page .social-links{
-  margin-top: 18px;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: rgba(128, 0, 255, 0.14);
-  border: 1px solid rgba(168, 85, 247, 0.22);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  z-index: 10;
-}
-
-.about-page .social-links a{
-  color: #facc15;
-  text-decoration: none;
-  padding: 10px 12px;
-  border-radius: 10px;
-  background: rgba(0,0,0,0.35);
-  transition: 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.about-page .social-links a:hover{
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 0 18px rgba(250, 204, 21, 0.22);
-}
-
-/* دکمه بازگشت به خانه پایین صفحه About */
-.about-page .start-btn{
-  margin-top: auto;
-  align-self: center;
-  margin-bottom: 20px;
-}
-
-/* =========================
-   Accessibility / Motion
-========================= */
-@media (prefers-reduced-motion: reduce){
-  .search-wrapper,
-  .search-input,
-  .search-btn,
-  .search-btn::after,
-  .search-btn i,
-  .details-btn,
-  .start-btn{
-    transition: none !important;
-  }
-}
-
-/* (فعلاً فقط حداقل ریسپانسیو، موبایل رو گفتی بعداً) */
-@media (max-width: 768px){
-  nav{ flex-wrap: wrap; gap: 15px; }
-  .dropdown-content{ right: auto; left: 0; min-width: 140px; }
-}
-
-/* =========================
-   ABOUT PAGE FIX (با HTML فعلی تو)
-========================= */
-
-/* بک‌گراند بنفش کم‌رنگ پشت متن‌های معرفی */
 .intro-box{
   background: rgba(128, 0, 255, 0.18);
   border: 1px solid rgba(168, 85, 247, 0.25);
@@ -567,34 +501,23 @@ body.searching nav{
   margin: 0 auto 18px;
 }
 
-/* دکمه بازگشت به خانه پایین صفحه (نه وسط intro-box) */
-.container{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 .profile-pic{
   margin-top: 20px;
 }
 
-/* social-box را به پایین هل می‌دهیم و دکمه را آخر می‌بریم */
 .social-box{
-  margin-top: auto !important;
+  margin-top: auto; /* فقط وقتی صفحه کوتاهه هل بده پایین */
   padding: 12px 14px;
   border-radius: 14px;
   background: rgba(128, 0, 255, 0.14);
   border: 1px solid rgba(168, 85, 247, 0.22);
-
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.18);
   backdrop-filter: blur(6px);
 }
 
-/* استایل دکمه‌های شبکه اجتماعی */
 .social-btn{
   color: #facc15;
   text-decoration: none;
-
   padding: 10px 12px;
   border-radius: 10px;
   background: rgba(0,0,0,0.35);
@@ -616,78 +539,27 @@ body.searching nav{
   transform: scale(0.96);
 }
 
-/* دکمه بازگشت به خانه داخل intro-box را به شکل دکمه نگه می‌داریم،
-   ولی جای آن را طوری تنظیم می‌کنیم که حس "وسط" ندهد */
 .intro-box .start-btn{
   display: inline-block;
   margin-top: 14px;
 }
 
-/* برای صفحه خانه و درباره من */
-.home-page, .about-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;  /* جلوگیری از اسکرول اضافی */
+/* =========================
+   Accessibility / Motion
+========================= */
+@media (prefers-reduced-motion: reduce){
+  .search-wrapper,
+  .search-input,
+  .search-btn,
+  .search-btn::after,
+  .search-btn i,
+  .details-btn,
+  .start-btn{
+    transition: none !important;
+  }
 }
 
-.container {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;  /* اگر محتوا بیشتر از فضای موجود باشد، اسکرول عمودی فعال می‌شود */
+@media (max-width: 768px){
+  nav{ flex-wrap: wrap; gap: 15px; }
+  .dropdown-content{ right: auto; left: 0; min-width: 140px; }
 }
-
-/* برای صفحه هوم */
-body.home-page {
-  /* استایل‌های خاص صفحه خانه */
-}
-
-/* برای صفحه درباره من */
-body.about-page {
-  /* استایل‌های خاص صفحه درباره من */
-}
-
-/* جزئیات بازی */
-#game-title {
-  font-size: 2em;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-#game-desc {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.start-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  font-size: 14px;
-  color: #fff;
-  background: linear-gradient(135deg, #6a00ff, #b100ff);
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(138, 43, 226, 0.45);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-  text-align: center;
-  display: block;
-  margin-top: 20px;
-  text-decoration: none;
-}
-
-.start-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 28px rgba(138, 43, 226, 0.7);
-  filter: brightness(1.15);
-}
-
-.start-btn:active {
-  transform: scale(0.95);
-  box-shadow: 0 4px 12px rgba(138, 43, 226, 0.5);
-}
-
-
-
-
-
